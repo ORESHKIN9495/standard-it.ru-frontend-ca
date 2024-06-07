@@ -20,7 +20,7 @@ const store = useNavigate()
         <RouterLink
           v-for="el of store.array[3].list"
           :key="el.name"
-          :to="{ name: 'home' }"
+          :to="{ name: el.route }"
           custom
           v-slot="{ navigate }"
           ><li v-on:click="navigate">{{ el.name }}</li>

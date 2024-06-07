@@ -1,65 +1,59 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
-import { RouterLink, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
 const router = useRouter()
 
-const props = defineProps(['name'])
-
-/* 
-  Crumbs
-  Get vue routes and find some values of current route path
-*/
-const parent = computed(() => {
-  let path = router.currentRoute.value.path.replace(/[0-9]/g, '').split('/') // replace /foo/bar/1 to ['foo', 'bar']
-
-  return router.options.routes.filter((obj) => Object.values(obj).some((value) => path.includes(value)))
+const props = defineProps({
+  crumb: String
 })
+
+const breadcrumbs = computed(() =>
+  router.options.routes.filter((el) => route.path.includes(el.path) && el.path !== route.path)
+)
 </script>
 
 <template>
   <nav>
-    <ul>
-      <li>
-        <a href="/">Главная</a>
-      </li>
+    <RouterLink v-for="(el, index) of breadcrumbs" :key="index" :to="{ name: el.name }">
+      {{ el.meta?.name }}
+    </RouterLink>
 
-      <li v-for="(el, index) of parent.filter((el) => el.name != router.currentRoute.value.name)" :key="index">
-        <RouterLink :to="{ name: el.name }">{{ el.meta.name }}</RouterLink>
-      </li>
-
-      <li>
-        {{ props.name ?? router.currentRoute.value.meta.name }}
-      </li>
-    </ul>
+    <span v-if="props.crumb" v-text="props.crumb" />
   </nav>
 </template>
 
 <style lang="scss" scoped>
 nav {
-  border-color: var(--c-border-dark);
-  border-style: solid;
-  border-width: 0 0 1px;
-  padding: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  gap: 12px;
+  height: fit-content;
+  margin: 0 0 48px;
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  a,
+  span {
+    background-color: rgb(var(--color-theme));
+    border-radius: var(--theme-radius);
+    color: rgb(var(--color-light));
 
-    li {
+    &::after {
+      color: var(--c-border-dark);
+      content: '―';
+      margin: 0 0 0 10px;
+    }
+
+    &:last-child {
       &::after {
-        color: var(--c-border-dark);
-        content: '―';
-        margin: 0 0 0 10px;
-      }
-
-      &:last-child {
-        &::after {
-          content: none;
-        }
+        content: none;
       }
     }
+  }
+
+  span {
+    color: rgba(89, 93, 99, 0.6);
   }
 }
 </style>

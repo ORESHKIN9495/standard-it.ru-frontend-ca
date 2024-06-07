@@ -13,23 +13,23 @@ export const useNavigate = defineStore('useNavigate', () => {
       list: [
         {
           name: 'Контакты',
-          route: 'contacts'
+          route: 'home'
         },
         {
           name: 'Новости',
-          route: 'posts'
+          route: 'home'
         },
         {
           name: 'Доска знаний',
-          route: 'knowledge'
+          route: 'home'
         },
         {
           name: 'Нормативная документация',
-          route: 'regulatory-documentation'
+          route: 'home'
         },
         {
           name: 'Наши клиенты',
-          route: 'clients'
+          route: 'home'
         },
         {
           name: 'Карта партнера',
@@ -37,15 +37,15 @@ export const useNavigate = defineStore('useNavigate', () => {
         },
         {
           name: 'Часто задаваемые вопросы',
-          route: 'questions'
+          route: 'home'
         },
         {
           name: 'Сертификаты',
-          route: 'certificates'
+          route: 'home'
         },
         {
           name: 'Вакансии',
-          route: 'vacancies'
+          route: 'home'
         }
       ]
     },
@@ -55,3 +55,42 @@ export const useNavigate = defineStore('useNavigate', () => {
 
   return { array, state }
 })
+
+// list: [
+//   {
+//     name: 'Контакты',
+//     route: 'contacts'
+//   },
+//   {
+//     name: 'Новости',
+//     route: 'posts'
+//   },
+//   {
+//     name: 'Доска знаний',
+//     route: 'knowledge'
+//   },
+//   {
+//     name: 'Нормативная документация',
+//     route: 'regulatory-documentation'
+//   },
+//   {
+//     name: 'Наши клиенты',
+//     route: 'clients'
+//   },
+//   {
+//     name: 'Карта партнера',
+//     route: 'card-partner'
+//   },
+//   {
+//     name: 'Часто задаваемые вопросы',
+//     route: 'questions'
+//   },
+//   {
+//     name: 'Сертификаты',
+//     route: 'certificates'
+//   },
+//   {
+//     name: 'Вакансии',
+//     route: 'vacancies'
+//   }
+// ]

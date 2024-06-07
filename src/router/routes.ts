@@ -5,7 +5,14 @@ export const routes = [
     component: () => import('@/pages/home/views/IndexView.vue'),
     meta: {
       name: 'Главная'
+    }
+  },
+  {
+    path: '/card-partner',
+    name: 'card-partner',
+    meta: {
+      name: 'Карта партнера'
     },
-    children: []
+    component: () => import('@/pages/card-partner/views/indexView.vue')
   }
 ]
