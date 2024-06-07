@@ -30,4 +30,4 @@ interface Cost {
   updated_at: string
 }
 
-export type { Service }
+export type { Collection, Cost, Service }
