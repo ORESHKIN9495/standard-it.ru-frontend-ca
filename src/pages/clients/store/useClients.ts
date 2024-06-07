@@ -9,12 +9,8 @@ export const useClients = defineStore('clients', () => {
   const find = async () => {
     await axios
       .get('/clients')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   return { find, list }

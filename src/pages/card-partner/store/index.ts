@@ -9,12 +9,8 @@ export const useCardPartners = defineStore('card-partners', () => {
   const find = async () => {
     await axios
       .get('/partner-card')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   return { find, list }

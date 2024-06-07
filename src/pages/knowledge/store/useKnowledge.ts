@@ -10,12 +10,8 @@ export const useKnowledge = defineStore('knowledge', () => {
   const find = async () => {
     await axios
       .get('/knowledge')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   const findOne = async (id: string) => {
@@ -32,18 +28,14 @@ export const useKnowledge = defineStore('knowledge', () => {
           update(listOne.value)
         }
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => console.log(error))
   }
 
   const update = async (data: Knowledge) => {
     await axios
       .put('/knowledge', data)
       .then(() => find())
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => console.log(error))
   }
 
   return { list, listOne, find, findOne, update }

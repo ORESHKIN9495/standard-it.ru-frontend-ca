@@ -10,21 +10,15 @@ export const useManufacturers = defineStore('manufacturers', () => {
   const find = async () => {
     await axios
       .get('/manufacturers')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   const findOne = async (id: string) => {
     await axios
       .get(`/manufacturers/${id}`)
       .then((response) => (listOne.value = response.data))
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => console.log(error))
   }
 
   return { list, find, findOne, listOne }

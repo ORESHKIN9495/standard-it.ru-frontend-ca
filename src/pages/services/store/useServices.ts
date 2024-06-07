@@ -1,7 +1,7 @@
 import { axios } from '@/commom/axios'
-import type { Collection, Service } from '@/pages/services/types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { Collection, Service } from '../types'
 
 export const useServices = defineStore('services', () => {
   const list = ref<Service[]>([])

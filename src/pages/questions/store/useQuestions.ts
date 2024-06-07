@@ -9,12 +9,8 @@ export const useQuestions = defineStore('questions', () => {
   const find = async () => {
     await axios
       .get('/questions')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   return { list, find }

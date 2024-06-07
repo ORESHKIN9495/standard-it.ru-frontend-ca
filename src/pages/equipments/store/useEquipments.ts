@@ -10,21 +10,15 @@ export const useEquipments = defineStore('equipments', () => {
   const find = async () => {
     await axios
       .get('/equipments')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   const findOne = async (id: string) => {
     await axios
       .get(`/equipments/${id}`)
       .then((response) => (listOne.value = response.data))
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => console.log(error))
   }
 
   return { find, findOne, list, listOne }
