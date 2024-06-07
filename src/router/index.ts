@@ -7,18 +7,18 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  const isLoading = useLoader()
-  isLoading.changeStateTrue()
+router.beforeEach(async (to, from, next) => {
+  const { setLoader } = useLoader()
 
+  setLoader()
   next()
 })
 
 router.afterEach(() => {
-  const isLoading = useLoader()
+  const { setLoader } = useLoader()
 
   setTimeout(() => {
-    isLoading.changeStateFalse()
+    setLoader()
   }, 2000)
 })
 

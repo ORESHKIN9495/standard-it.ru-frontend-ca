@@ -64,7 +64,7 @@ section {
   }
 
   nav {
-    background-color: #f6f5f5;
+    background-color: rgb(var(--color-light));
     display: flex;
     justify-content: center;
     gap: 60px;
@@ -81,7 +81,7 @@ section {
       &:first-of-type {
         li {
           &:hover {
-            color: rgba(var(--c-theme-alpha), 0.8);
+            color: rgba(var(--color-theme), 0.8);
           }
 
           &::before {

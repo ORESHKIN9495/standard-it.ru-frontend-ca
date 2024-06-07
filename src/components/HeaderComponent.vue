@@ -78,10 +78,10 @@ const active = ref(false)
 
 <style lang="scss" scoped>
 header {
-  border-color: var(--c-border-dark);
+  border-color: rgb(var(--color-border-dark));
   border-style: solid;
   border-width: 0 0 1px;
-  background-color: #f6f5f5;
+  background-color: rgb(var(--color-light));
   display: grid;
   grid-template: 85px / 230px 1fr minmax(auto, 424px);
   position: sticky;
@@ -99,7 +99,7 @@ header {
 
     &:first-of-type {
       align-items: center;
-      border-color: var(--c-border-dark);
+      border-color: rgb(var(--color-border-dark));
       border-style: solid;
       border-width: 0 1px;
 
@@ -118,7 +118,7 @@ header {
         }
 
         &:last-of-type {
-          border-bottom: 1.5px solid var(--c-theme);
+          border-bottom: 1.5px solid rgb(var(--color-theme));
         }
       }
     }

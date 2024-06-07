@@ -4,9 +4,7 @@ import { ref } from 'vue'
 export const useLoader = defineStore('isLoading', () => {
   const state = ref(false)
 
-  const changeStateTrue = () => (state.value = true)
+  const setLoader = () => (state.value = !state.value)
 
-  const changeStateFalse = () => (state.value = false)
-
-  return { state, changeStateTrue, changeStateFalse }
+  return { state, setLoader }
 })
