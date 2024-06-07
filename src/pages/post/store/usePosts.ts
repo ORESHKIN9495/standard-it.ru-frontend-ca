@@ -1,7 +1,7 @@
 import { axios } from '@/commom/axios'
-import type { Posts } from '@/pages/post/types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { Posts } from '../types'
 
 export const usePosts = defineStore('posts', () => {
   const list = ref<Posts[]>([])
@@ -10,12 +10,8 @@ export const usePosts = defineStore('posts', () => {
   const find = async () => {
     await axios
       .get('/posts')
-      .then((response) => {
-        list.value = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      .then((response) => (list.value = response.data))
+      .catch((error) => console.log(error))
   }
 
   const findOne = async (id: string) => {
@@ -32,18 +28,14 @@ export const usePosts = defineStore('posts', () => {
           update(listOne.value)
         }
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => console.log(error))
   }
 
   const update = async (data: Posts) => {
     await axios
       .put('/posts', data)
       .then(() => find())
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => console.log(error))
   }
 
   return { list, listOne, find, findOne, update }
