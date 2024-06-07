@@ -1,4 +1,4 @@
-import type { Collection } from '@/pages/home/types'
+import type { Service } from '@/pages/services/types'
 
 interface Solution {
   id: number
@@ -9,9 +9,16 @@ interface Solution {
   file: string
   status: boolean
   slide: boolean
-  slug: string
-  services: []
+  slug?: string
+  services: Service[]
   collection: Collection[]
+}
+
+interface Collection {
+  id: number
+  name: string
+  description: string
+  status: boolean
 }
 
 export type { Solution }
