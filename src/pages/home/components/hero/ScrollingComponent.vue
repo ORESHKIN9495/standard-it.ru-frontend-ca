@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const scrollTo = () => {
-  scrollBy({
-    top: (document.querySelector('#steps') as HTMLElement).scrollTop - 86,
+const scrollToElement = () => {
+  window.scrollTo({
+    top: (document.querySelector('#steps') as HTMLElement).offsetTop - 86,
     behavior: 'smooth'
   })
 }
 </script>
 
 <template>
-  <svg fill="none" width="24" viewBox="0 0 79 123" v-on:click="scrollTo()">
+  <svg fill="none" width="24" viewBox="0 0 79 123" v-on:click="scrollToElement()">
     <rect
       id="mouse"
       width="71"

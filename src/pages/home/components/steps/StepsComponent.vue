@@ -7,7 +7,7 @@ const store = useSteps()
 </script>
 
 <template>
-  <section>
+  <section id="steps">
     <AccordionComponent />
 
     <div>
