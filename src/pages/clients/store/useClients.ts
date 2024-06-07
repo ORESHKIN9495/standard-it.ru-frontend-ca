@@ -8,7 +8,7 @@ export const useClients = defineStore('clients', () => {
 
   const find = async () => {
     await axios
-      .get('/partner-card')
+      .get('/clients')
       .then((response) => {
         list.value = response.data
       })
