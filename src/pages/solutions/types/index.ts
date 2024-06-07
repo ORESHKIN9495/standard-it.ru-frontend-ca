@@ -21,4 +21,4 @@ interface Collection {
   status: boolean
 }
 
-export type { Solution }
+export type { Collection, Solution }
