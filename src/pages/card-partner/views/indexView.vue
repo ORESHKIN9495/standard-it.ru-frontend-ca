@@ -1,9 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import CrumbsComponent from '@/components/CrumbsComponent.vue'
+import CardPartnerComponent from '../component/CardPartnerComponent.vue'
+</script>
 
 <template>
-  <main></main>
+  <main>
+    <CrumbsComponent crumb="Карта партнера" />
+
+    <CardPartnerComponent />
+  </main>
 </template>
 
 <style scoped lang="scss">
-// & else
+main {
+  display: grid;
+  gap: var(--theme-gap);
+}
 </style>

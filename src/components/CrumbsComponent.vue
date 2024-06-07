@@ -26,21 +26,18 @@ const breadcrumbs = computed(() =>
 
 <style lang="scss" scoped>
 nav {
+  background-color: rgb(var(--color-light));
   display: flex;
-  flex-wrap: wrap;
-  font-size: 14px;
-  gap: 12px;
+  gap: 10px;
   height: fit-content;
-  margin: 0 0 48px;
+  padding: 20px clamp(20px, 4vw, 40px);
 
   a,
   span {
-    background-color: rgb(var(--color-theme));
-    border-radius: var(--theme-radius);
-    color: rgb(var(--color-light));
+    color: rgb(var(--color-theme));
 
     &::after {
-      color: var(--c-border-dark);
+      color: rgb(var(--color-border-dark));
       content: '―';
       margin: 0 0 0 10px;
     }

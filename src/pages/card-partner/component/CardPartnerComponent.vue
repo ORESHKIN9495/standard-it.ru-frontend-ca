@@ -109,42 +109,35 @@ store.find()
 
 <style scoped lang="scss">
 section {
-  border-bottom: 1px solid var(--c-border-dark);
-  display: grid;
-  padding: 40px;
-  gap: 20px;
+  background-color: rgb(var(--color-light));
+  padding: clamp(20px, 4vw, 40px);
+
+  h1 {
+    margin: 0 0 40px;
+  }
 
   article {
+    border: 1px solid rgb(var(--color-border-dark));
+    padding: clamp(20px, 4vw, 40px);
+
     h2 {
-      grid-column: 1 / 3;
+      margin: 0 0 40px;
     }
 
-    &:last-child {
-      border: 1px solid var(--c-border-dark);
-      max-width: 1200px;
-      padding: 40px;
-
-      ul {
-        display: grid;
-        grid-template: auto / repeat(2, 1fr);
-        gap: 20px;
-        margin: 20px 0;
-      }
+    ul {
+      display: grid;
+      grid-template: auto / repeat(2, 1fr);
+      gap: 20px;
+      margin: 20px 0;
     }
   }
 }
 
 @media only screen and (max-width: 720px) {
   section {
-    h2 {
-      grid-column: auto;
-    }
-
     article {
-      &:last-child {
-        ul {
-          grid-template: auto / 1fr;
-        }
+      ul {
+        grid-template: auto / auto;
       }
     }
   }

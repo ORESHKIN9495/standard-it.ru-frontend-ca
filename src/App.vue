@@ -41,6 +41,11 @@ h2 {
 
 h3 {
   font-size: clamp(16px, 4vw, 18px);
+}
+
+h1,
+h2,
+h3 {
   font-weight: 400;
 }
 
@@ -48,7 +53,7 @@ body {
   background-color: rgb(var(--color-border-dark));
   color: rgb(var(--color-text-dark));
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.64;
 }
