@@ -31,7 +31,7 @@ const active = ref(false)
         </svg>
       </a>
 
-      <RouterLink :to="{ name: 'home' }">Решения</RouterLink>
+      <RouterLink :to="{ name: 'solutions' }">Решения</RouterLink>
 
       <RouterLink :to="{ name: 'home' }">Контакты</RouterLink>
 

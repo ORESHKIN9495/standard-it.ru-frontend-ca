@@ -28,6 +28,7 @@ const breadcrumbs = computed(() =>
 nav {
   background-color: rgb(var(--color-light));
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   height: fit-content;
   padding: 20px clamp(20px, 4vw, 40px);

@@ -24,7 +24,7 @@ const summary = (array: Cost[]) =>
 </script>
 
 <template>
-  <section>
+  <main>
     <CrumbsComponent :crumb="store.listOne?.name" />
 
     <article>
@@ -41,11 +41,11 @@ const summary = (array: Cost[]) =>
     </article>
 
     <article class="content" v-html="store.listOne?.content"></article>
-  </section>
+  </main>
 </template>
 
 <style scoped lang="scss">
-section {
+main {
   display: grid;
   gap: var(--theme-gap);
 
