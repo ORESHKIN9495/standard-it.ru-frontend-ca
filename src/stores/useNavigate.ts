@@ -37,7 +37,7 @@ export const useNavigate = defineStore('useNavigate', () => {
         },
         {
           name: 'Часто задаваемые вопросы',
-          route: 'home'
+          route: 'questions'
         },
         {
           name: 'Сертификаты',

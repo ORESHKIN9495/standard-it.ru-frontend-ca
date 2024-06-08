@@ -1,11 +1,19 @@
 <script setup lang="ts">
-// do smth
+import CrumbsComponent from '@/components/CrumbsComponent.vue'
+import QuestionComponent from '../components/QuestionComponent.vue'
 </script>
 
 <template>
-  <main></main>
+  <main>
+    <CrumbsComponent crumb="Часто задаваемые вопросы" />
+
+    <QuestionComponent />
+  </main>
 </template>
 
 <style scoped lang="scss">
-// & else
+main {
+  display: grid;
+  gap: var(--theme-gap);
+}
 </style>

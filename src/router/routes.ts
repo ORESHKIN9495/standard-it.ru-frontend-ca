@@ -22,5 +22,13 @@ export const routes = [
       name: 'Контакты'
     },
     component: () => import('@/pages/contacts/views/indexView.vue')
+  },
+  {
+    path: '/questions',
+    name: 'questions',
+    meta: {
+      name: 'Часто задаваемые вопросы'
+    },
+    component: () => import('@/pages/questions/views/indexView.vue')
   }
 ]
