@@ -1,5 +1,6 @@
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
+import VueTheMask from 'vue-the-mask'
 
 import App from './App.vue'
 import router from './router'
@@ -28,5 +29,6 @@ app.directive('outside', {
 
 app.use(createPinia())
 app.use(router)
+app.use(VueTheMask as any)
 
 app.mount('#app')

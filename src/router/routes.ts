@@ -30,5 +30,18 @@ export const routes = [
       name: 'Часто задаваемые вопросы'
     },
     component: () => import('@/pages/questions/views/indexView.vue')
+  },
+  {
+    path: '/services',
+    name: 'services',
+    meta: {
+      name: 'Каталог услуг'
+    },
+    component: () => import('@/pages/services/views/indexView.vue')
+  },
+  {
+    path: '/services/:id',
+    name: 'service',
+    component: () => import('@/pages/services/views/indexPage.vue')
   }
 ]
