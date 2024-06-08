@@ -39,7 +39,7 @@ store.findOne(route.params.id)
       <li
         v-for="el of store.listOne.equipments.filter((e) => e.status === true)"
         :key="el.id"
-        :class="{ active: item.description }"
+        :class="{ active: el.description }"
       >
         <RouterLink
           v-if="el.description"

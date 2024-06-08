@@ -25,7 +25,7 @@ export const useNavigate = defineStore('useNavigate', () => {
         },
         {
           name: 'Нормативная документация',
-          route: 'home'
+          route: 'regulatory-documentation'
         },
         {
           name: 'Наши клиенты',

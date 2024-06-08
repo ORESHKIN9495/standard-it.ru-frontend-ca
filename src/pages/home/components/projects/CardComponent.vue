@@ -7,13 +7,15 @@ const props = defineProps({
 </script>
 
 <template>
-  <article>
-    <picture>
-      <img v-if="props.data.image" :src="`${url}/out/${props.data.image}.webp`" />
-    </picture>
+  <RouterLink :to="{ name: 'project', params: { id: props.data.id } }" custom v-slot="{ navigate }">
+    <article v-on:click="navigate">
+      <picture>
+        <img v-if="props.data.image" :src="`${url}/out/${props.data.image}.webp`" />
+      </picture>
 
-    <h3>{{ props.data.name }}</h3>
-  </article>
+      <h3>{{ props.data.name }}</h3>
+    </article>
+  </RouterLink>
 </template>
 
 <style scoped lang="scss">

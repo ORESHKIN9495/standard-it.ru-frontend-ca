@@ -8,7 +8,7 @@ export const useRegulatoryDocumentation = defineStore('regulatory-documentation'
 
   const find = async () => {
     await axios
-      .get('/posts')
+      .get('/regulatory-documentation')
       .then((response) => (list.value = response.data))
       .catch((error) => console.log(error))
   }

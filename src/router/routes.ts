@@ -69,5 +69,13 @@ export const routes = [
     path: '/projects/:id',
     name: 'project',
     component: () => import('@/pages/projects/views/indexPage.vue')
+  },
+  {
+    path: '/regulatory-documentation',
+    name: 'regulatory-documentation',
+    meta: {
+      name: 'Нормативная документация'
+    },
+    component: () => import('@/pages/regulatory-documentation/views/indexView.vue')
   }
 ]
