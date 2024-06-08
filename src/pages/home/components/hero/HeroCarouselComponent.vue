@@ -38,17 +38,19 @@ onMounted(() => {
 
         <p v-html="slider[index]?.description"></p>
 
-        <ButtonComponent title="Подробнее" />
+        <RouterLink
+          :to="{ name: slider[index]?.slug, params: { id: slider[index].id } }"
+          custom
+          v-slot="{ navigate }"
+        >
+          <ButtonComponent title="Подробнее" v-on:click="navigate" />
+        </RouterLink>
       </article>
     </Transition>
 
     <ScrollingComponent />
   </section>
 </template>
-
-<!-- name: slider[index].slug,
-params: { id: slider[index].id },
-state: { el: JSON.stringify({ ...slider[index] }) } -->
 
 <style lang="scss" scoped>
 section {

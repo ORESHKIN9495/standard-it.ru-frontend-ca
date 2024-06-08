@@ -1,3 +1,5 @@
+import type { Service } from '@/pages/services/types'
+
 interface Project {
   id: number
   name: string
@@ -5,23 +7,10 @@ interface Project {
   content: string
   image: string
   status: boolean
-  slide: boolean
-  slug: string
-  cost: Cost[]
-  collection: Collection[]
   views: number
-}
-
-interface Cost {
-  id: number
-  amount: number
-  coef: {
-    id: number
-    amount: number
-  }
-  summary: number
-  created_at: string
-  updated_at: string
+  services: Service[]
+  equipments: []
+  collection: Collection[]
 }
 
 interface Collection {
@@ -31,4 +20,4 @@ interface Collection {
   status: boolean
 }
 
-export type { Collection, Cost, Project }
+export type { Collection, Project }

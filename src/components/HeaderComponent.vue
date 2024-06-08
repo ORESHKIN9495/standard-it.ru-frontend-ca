@@ -21,7 +21,7 @@ const active = ref(false)
 
       <RouterLink :to="{ name: 'services' }">Каталог услуг</RouterLink>
 
-      <RouterLink :to="{ name: 'home' }">Проекты</RouterLink>
+      <RouterLink :to="{ name: 'projects' }">Проекты</RouterLink>
 
       <a v-on:click="store.state = !store.state" v-outside="() => (store.state = false)">
         О компании
@@ -33,7 +33,7 @@ const active = ref(false)
 
       <RouterLink :to="{ name: 'solutions' }">Решения</RouterLink>
 
-      <RouterLink :to="{ name: 'home' }">Контакты</RouterLink>
+      <RouterLink :to="{ name: 'contacts' }">Контакты</RouterLink>
 
       <svg width="25" height="25" v-on:click="active = !active">
         <use xlink:href="@/assets/images/sprites.svg#menu"></use>

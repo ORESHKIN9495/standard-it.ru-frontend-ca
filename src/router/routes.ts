@@ -56,5 +56,18 @@ export const routes = [
     path: '/solutions/:id',
     name: 'solution',
     component: () => import('@/pages/solutions/views/indexPage.vue')
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    meta: {
+      name: 'Проекты'
+    },
+    component: () => import('@/pages/projects/views/indexView.vue')
+  },
+  {
+    path: '/projects/:id',
+    name: 'project',
+    component: () => import('@/pages/projects/views/indexPage.vue')
   }
 ]
