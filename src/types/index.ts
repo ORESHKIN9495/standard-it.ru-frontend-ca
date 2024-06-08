@@ -9,4 +9,19 @@ interface Settings {
   address: string
 }
 
-export type { Settings }
+interface Form {
+  name: string
+  email: string
+  company: string
+  phone: string
+  content: string
+  uri: string
+}
+
+interface Error {
+  name: string
+  email: string
+  phone: string
+}
+
+export type { Error, Form, Settings }

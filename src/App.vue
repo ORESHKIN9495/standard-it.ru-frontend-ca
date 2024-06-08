@@ -4,12 +4,19 @@ import HeaderComponent from '@/components/HeaderComponent.vue'
 import LoaderComponent from '@/components/LoaderComponent.vue'
 import { useLoader } from '@/stores/useLoader'
 import { RouterView } from 'vue-router'
+import MessagesComponent from './components/MessagesComponent.vue'
+import { useState } from './stores/useState'
 
 const isLoading = useLoader()
+const state = useState()
+
+state.findSettings()
 </script>
 
 <template>
   <LoaderComponent v-if="isLoading.state"></LoaderComponent>
+
+  <MessagesComponent />
 
   <HeaderComponent />
 
@@ -71,13 +78,13 @@ form {
   input,
   textarea {
     background: none;
-    border: 1px solid rgba(var(--c-text-dark-alpha), 0.4);
+    border: 1px solid rgb(var(--color-border-dark));
     outline: none;
     padding: 15px 40px;
     width: 100%;
 
     &:focus {
-      border-color: var(--c-theme);
+      border-color: rgb(var(--color-theme));
     }
   }
 

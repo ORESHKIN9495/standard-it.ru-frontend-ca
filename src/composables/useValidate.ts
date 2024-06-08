@@ -1,16 +1,6 @@
 import { ref } from 'vue'
 
-interface Error {
-  name: string
-  email: string
-  phone: string
-}
-
-interface Form {
-  name: string
-  email: string
-  phone: string
-}
+import type { Error, Form } from '@/types'
 
 const errors = ref<Error>({
   name: '',

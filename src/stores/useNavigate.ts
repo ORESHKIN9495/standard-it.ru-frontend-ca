@@ -13,7 +13,7 @@ export const useNavigate = defineStore('useNavigate', () => {
       list: [
         {
           name: 'Контакты',
-          route: 'home'
+          route: 'contacts'
         },
         {
           name: 'Новости',

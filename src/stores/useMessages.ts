@@ -1,4 +1,5 @@
 import { axios } from '@/commom/axios'
+import type { Form } from '@/types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -8,7 +9,7 @@ export const useMessages = defineStore('messages', () => {
   const messagesStatus = ref()
   const subscribeStatus = ref()
 
-  const postMessage = async (data: any) => {
+  const postMessage = async (data: Form) => {
     await axios
       .post('/messages', data)
       .then((response) => (messagesStatus.value = response))
@@ -17,7 +18,7 @@ export const useMessages = defineStore('messages', () => {
       })
   }
 
-  const postSubscribe = async (data: any) => {
+  const postSubscribe = async (data: string) => {
     await axios
       .post('/subscribes', data)
       .then((response) => (subscribeStatus.value = response))

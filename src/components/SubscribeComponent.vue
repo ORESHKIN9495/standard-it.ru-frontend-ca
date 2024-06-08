@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import { mailingErrors, validateEmail } from '@/compossables/useValidate'
+import { mailingErrors, validateEmail } from '@/composables/useValidate'
 import { useMessages } from '@/stores/useMessages'
 import { ref } from 'vue'
 
@@ -11,8 +11,12 @@ const form = ref({ email: '' })
 const prepare = () => {
   validateEmail(form.value.email)
 
-  if (mailingErrors.value.email === null) {
-    store.postSubscribe(form.value)
+  if (mailingErrors.value.email === '') {
+    store.postSubscribe(form.value.email)
+  } else {
+    setTimeout(() => {
+      mailingErrors.value = { email: '' }
+    }, 3000)
   }
 }
 </script>
@@ -21,9 +25,11 @@ const prepare = () => {
   <form v-if="!store.subscribeStatus" v-on:submit.prevent="prepare()">
     <h3>Подписаться на новости</h3>
 
-    <input type="text" v-model="form.email" placeholder="Адрес эл.почты" />
+    <label :class="{ error: mailingErrors.email }">
+      <input type="text" v-model="form.email" placeholder="Адрес эл.почты" />
 
-    <p v-if="mailingErrors.email" class="error">{{ mailingErrors.email }}</p>
+      <p v-if="mailingErrors.email">{{ mailingErrors.email }}</p>
+    </label>
 
     <p>
       При клике на кнопку отправить, вы соглашаетесь с <a href="/">политикой конфиденциальности</a>
@@ -45,27 +51,37 @@ form {
   padding: clamp(20px, 2vw, 40px);
   color: #ffffff;
 
-  input {
-    border: 1px solid #ffffff;
-  }
-
   h3 {
     margin: 0 0 20px;
   }
 
+  label {
+    input {
+      border: 1px solid #ffffff;
+    }
+
+    &.error {
+      input {
+        border-color: tomato;
+      }
+
+      p {
+        color: tomato;
+      }
+    }
+  }
+
   p {
+    font-size: 14px;
     margin: 20px 0;
+    opacity: 0.8;
 
     a {
       text-decoration: underline;
 
       &:hover {
-        color: var(--c-theme);
+        color: rgba(var(--color-theme), 0.8);
       }
-    }
-
-    &.error {
-      color: tomato;
     }
   }
 
