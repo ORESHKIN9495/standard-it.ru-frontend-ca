@@ -65,6 +65,10 @@ body {
   line-height: 1.64;
 }
 
+a {
+  cursor: pointer;
+}
+
 picture {
   display: block;
 }

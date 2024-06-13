@@ -39,6 +39,7 @@ onMounted(() => {
         <p v-html="slider[index]?.description"></p>
 
         <RouterLink
+          v-if="slider[index]?.slug"
           :to="{ name: slider[index]?.slug, params: { id: slider[index].id } }"
           custom
           v-slot="{ navigate }"

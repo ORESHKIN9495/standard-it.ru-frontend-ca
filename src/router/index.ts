@@ -8,17 +8,17 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const { setLoader } = useLoader()
+  const { changeStateTrue } = useLoader()
 
-  setLoader()
+  changeStateTrue()
   next()
 })
 
 router.afterEach(() => {
-  const { setLoader } = useLoader()
+  const { changeStateFalse } = useLoader()
 
   setTimeout(() => {
-    setLoader()
+    changeStateFalse()
   }, 2000)
 })
 
