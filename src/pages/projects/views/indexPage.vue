@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
 
 import ButtonComponent from '@/components/ButtonComponent.vue'
@@ -64,7 +64,7 @@ store.findOne(route.params.id)
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 main {
   display: grid;
   grid-template: auto / repeat(2, 1fr);

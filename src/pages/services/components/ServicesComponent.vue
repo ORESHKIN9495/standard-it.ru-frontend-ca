@@ -34,7 +34,7 @@ const filteredList = computed(() => {
       custom
       v-slot="{ navigate }"
     >
-      <article v-on:click="navigate">
+      <article v-on:click="navigate" class="card">
         <picture>
           <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" />
         </picture>
@@ -51,31 +51,17 @@ section {
   display: grid;
   grid-template: auto / repeat(5, 1fr);
   gap: 40px;
-  padding: 0 0 40px;
 
   article {
-    background-color: #ffffff;
-    cursor: pointer;
-    padding: 20px;
-    transition: 0.2s ease-in-out;
-
     picture {
-      height: 200px;
       overflow: hidden;
 
       img {
-        object-fit: cover;
         transition: 0.2s ease-in-out;
       }
     }
 
-    h3 {
-      font-size: 16px;
-    }
-
     &:hover {
-      box-shadow: 0 20px 20px -10px rgba(21, 31, 50, 0.15);
-
       picture {
         img {
           transform: scale(1.2);

@@ -1,3 +1,5 @@
+import type { Manufacturer } from '@/pages/manufacturers/types'
+
 interface Posts {
   id: number
   name: string
@@ -5,7 +7,7 @@ interface Posts {
   content: string
   author: string
   image: string
-  manufacturers: []
+  manufacturers: Manufacturer[]
   status: boolean
   mailing: boolean
   published: string

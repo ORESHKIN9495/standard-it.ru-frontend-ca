@@ -1,35 +1,30 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useSolutions } from '../store/useSolutions'
-import FilterComponent from './FilterComponent.vue'
+import { fDate } from '@/composables/useDate'
+import { sortBy } from 'lodash'
+import { RouterLink } from 'vue-router'
+import FilterComponent from '../component/FilterComponent.vue'
+import { usePosts } from '../store/usePosts'
 
 const url = import.meta.env.VITE_URL
-const store = useSolutions()
+
+const store = usePosts()
 
 store.find()
-
-const index = ref({
-  selected: 'all',
-  name: 'все'
-})
-
-const filteredList = computed(() => {
-  if (index.value.selected === 'all') {
-    return store.list
-  } else {
-    return store.list.filter((el) => el.collection.some((el) => el.name === index.value.name))
-  }
-})
 </script>
 
 <template>
   <section>
-    <FilterComponent v-on:selected="index = $event"></FilterComponent>
+    <FilterComponent></FilterComponent>
 
     <RouterLink
-      v-for="el of filteredList.filter((e) => e.status === true)"
-      :key="el.id"
-      :to="{ name: 'solution', params: { id: el.id }, state: { el: JSON.stringify({ ...el }) } }"
+      v-for="el of sortBy(store.filteredData, 'published')
+        .reverse()
+        .filter((el) => el.status === true)"
+      :key="el.name"
+      :to="{
+        name: 'post',
+        params: { id: el.id }
+      }"
       custom
       v-slot="{ navigate }"
     >
@@ -39,23 +34,33 @@ const filteredList = computed(() => {
         </picture>
 
         <h3>{{ el.name }}</h3>
+
+        <time>{{ fDate(el.published as string) }}</time>
       </article>
     </RouterLink>
+
+    <h2 v-if="!store.filteredData.length">Совпадений не найдено</h2>
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 section {
   background-color: rgb(var(--color-light));
   display: grid;
   grid-template: auto / repeat(5, 1fr);
   gap: 40px;
 
+  h2 {
+    grid-column: 1 / -1;
+    margin: 40px auto;
+  }
+
   article {
     picture {
       overflow: hidden;
 
       img {
+        display: block;
         transition: 0.2s ease-in-out;
       }
     }

@@ -6,17 +6,19 @@ import type { Posts } from '../types'
 export const usePosts = defineStore('posts', () => {
   const list = ref<Posts[]>([])
   const listOne = ref<Posts>()
+  const filteredData = ref<Posts[]>([])
 
   const find = async () => {
     await axios
       .get('/posts')
       .then((response) => (list.value = response.data))
+      .then(() => (filteredData.value = list.value))
       .catch((error) => console.log(error))
   }
 
   const findOne = async (id: string) => {
     await axios
-      .get(`/post/${id}`)
+      .get(`/posts/${id}`)
       .then((response) => {
         listOne.value = response.data
 
@@ -38,5 +40,5 @@ export const usePosts = defineStore('posts', () => {
       .catch((error) => console.log(error))
   }
 
-  return { list, listOne, find, findOne, update }
+  return { list, listOne, find, findOne, update, filteredData }
 })

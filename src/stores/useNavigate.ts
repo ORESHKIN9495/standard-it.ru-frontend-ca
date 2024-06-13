@@ -17,7 +17,7 @@ export const useNavigate = defineStore('useNavigate', () => {
         },
         {
           name: 'Новости',
-          route: 'home'
+          route: 'posts'
         },
         {
           name: 'Доска знаний',

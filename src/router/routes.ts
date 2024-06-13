@@ -77,5 +77,19 @@ export const routes = [
       name: 'Нормативная документация'
     },
     component: () => import('@/pages/regulatory-documentation/views/indexView.vue')
+  },
+  {
+    path: '/posts',
+    name: 'posts',
+    meta: {
+      name: 'Новости'
+    },
+    component: () => import('@/pages/post/views/indexView.vue')
+  },
+  {
+    path: '/posts/:id',
+    name: 'post',
+
+    component: () => import('@/pages/post/views/indexPage.vue')
   }
 ]

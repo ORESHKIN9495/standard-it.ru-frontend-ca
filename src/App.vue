@@ -96,4 +96,36 @@ form {
     resize: none;
   }
 }
+
+.card {
+  background-color: #ffffff;
+  cursor: pointer;
+  display: grid;
+  gap: 20px;
+  grid-template: auto auto 1fr / auto;
+  padding: 20px;
+  transition: 0.2s ease-in-out;
+
+  picture {
+    height: 200px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  time {
+    font-size: 12px;
+    margin: auto 0 0 auto;
+    opacity: 0.6;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 20px -10px rgba(21, 31, 50, 0.15);
+  }
+}
 </style>

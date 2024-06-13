@@ -8,7 +8,7 @@ const props = defineProps({
 
 <template>
   <RouterLink :to="{ name: 'project', params: { id: props.data.id } }" custom v-slot="{ navigate }">
-    <article v-on:click="navigate">
+    <article v-on:click="navigate" class="card">
       <picture>
         <img v-if="props.data.image" :src="`${url}/out/${props.data.image}.webp`" />
       </picture>
@@ -20,25 +20,10 @@ const props = defineProps({
 
 <style scoped lang="scss">
 article {
-  background-color: rgb(var(--color-light));
-  padding: 20px;
+  grid-template: auto / auto;
 
-  &:not(:first-of-type) {
-    box-shadow: 0 20px 20px -10px rgba(21, 31, 50, 0.05);
-    transition: 0.2s ease-in-out;
-
-    &:hover {
-      box-shadow: 0 20px 20px -10px rgba(21, 31, 50, 0.15);
-      transform: translateY(-10px);
-    }
-  }
-
-  picture {
-    height: 200px;
-
-    img {
-      object-fit: cover;
-    }
+  &:hover {
+    transform: translateY(-10px);
   }
 }
 </style>

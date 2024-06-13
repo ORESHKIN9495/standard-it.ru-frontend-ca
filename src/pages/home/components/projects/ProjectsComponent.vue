@@ -34,11 +34,6 @@ section {
   gap: 40px;
   grid-template: auto / repeat(4, 1fr);
 
-  h3 {
-    font-size: 16px;
-    margin: 20px 0 0;
-  }
-
   article {
     &:first-of-type {
       background-color: rgb(var(--color-theme));
