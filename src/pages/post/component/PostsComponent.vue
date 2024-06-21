@@ -35,7 +35,7 @@ store.find()
 
         <h3>{{ el.name }}</h3>
 
-        <time>{{ fDate(el.published as string) }}</time>
+        <time>{{ fDate(el.published, 'fullDate') }}</time>
       </article>
     </RouterLink>
 
