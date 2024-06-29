@@ -3,6 +3,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import LoaderComponent from '@/components/LoaderComponent.vue'
 import { useLoader } from '@/stores/useLoader'
+import { watchEffect } from 'vue'
 import { RouterView } from 'vue-router'
 import MessagesComponent from './components/MessagesComponent.vue'
 import { useState } from './stores/useState'
@@ -11,6 +12,12 @@ const isLoading = useLoader()
 const state = useState()
 
 state.findSettings()
+
+watchEffect(() => {
+  isLoading.state
+    ? document.documentElement.classList.add('pending')
+    : document.documentElement.classList.remove('pending')
+})
 </script>
 
 <template>
@@ -63,6 +70,10 @@ body {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.64;
+}
+
+.pending {
+  overflow: hidden;
 }
 
 a {

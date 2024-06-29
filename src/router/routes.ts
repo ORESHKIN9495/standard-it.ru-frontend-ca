@@ -119,5 +119,13 @@ export const routes = [
     name: 'vacancy',
 
     component: () => import('@/pages/vacancies/views/indexPage.vue')
+  },
+  {
+    path: '/certificates',
+    name: 'certificates',
+    meta: {
+      name: 'Сертификаты'
+    },
+    component: () => import('@/pages/certificates/views/indexView.vue')
   }
 ]

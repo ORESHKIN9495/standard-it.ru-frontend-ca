@@ -41,7 +41,7 @@ export const useNavigate = defineStore('useNavigate', () => {
         },
         {
           name: 'Сертификаты',
-          route: 'home'
+          route: 'certificates'
         },
         {
           name: 'Вакансии',
@@ -55,42 +55,3 @@ export const useNavigate = defineStore('useNavigate', () => {
 
   return { array, state }
 })
-
-// list: [
-//   {
-//     name: 'Контакты',
-//     route: 'contacts'
-//   },
-//   {
-//     name: 'Новости',
-//     route: 'posts'
-//   },
-//   {
-//     name: 'Доска знаний',
-//     route: 'knowledge'
-//   },
-//   {
-//     name: 'Нормативная документация',
-//     route: 'regulatory-documentation'
-//   },
-//   {
-//     name: 'Наши клиенты',
-//     route: 'clients'
-//   },
-//   {
-//     name: 'Карта партнера',
-//     route: 'card-partner'
-//   },
-//   {
-//     name: 'Часто задаваемые вопросы',
-//     route: 'questions'
-//   },
-//   {
-//     name: 'Сертификаты',
-//     route: 'certificates'
-//   },
-//   {
-//     name: 'Вакансии',
-//     route: 'vacancies'
-//   }
-// ]
