@@ -12,7 +12,7 @@ interface Knowledge {
   status: boolean
   published: string
   views: number
-  collections: Collection[]
+  collection: Collection[]
 }
 
 interface Collection {

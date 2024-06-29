@@ -128,4 +128,21 @@ form {
     box-shadow: 0 20px 20px -10px rgba(21, 31, 50, 0.15);
   }
 }
+
+.content {
+  img {
+    width: 100%;
+    margin: 40px 0;
+  }
+
+  a {
+    color: rgb(var(--color-theme));
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style: disc;
+    padding: 20px;
+  }
+}
 </style>

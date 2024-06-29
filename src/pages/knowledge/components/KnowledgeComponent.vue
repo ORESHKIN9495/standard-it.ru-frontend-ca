@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { useSolutions } from '../store/useSolutions'
+import { fDate } from '@/composables/useDate'
+import { useKnowledge } from '../store/useKnowledge'
 import FilterComponent from './FilterComponent.vue'
 
 const url = import.meta.env.VITE_URL
-const store = useSolutions()
+const store = useKnowledge()
+
+store.find()
 </script>
 
 <template>
@@ -11,9 +14,12 @@ const store = useSolutions()
     <FilterComponent></FilterComponent>
 
     <RouterLink
-      v-for="el of store.filteredData.filter((e) => e.status === true)"
+      v-for="el of store.filteredData.filter((e) => e.status).reverse()"
       :key="el.id"
-      :to="{ name: 'solution', params: { id: el.id } }"
+      :to="{
+        name: 'knowledge-page',
+        params: { id: el.id }
+      }"
       custom
       v-slot="{ navigate }"
     >
@@ -23,6 +29,8 @@ const store = useSolutions()
         </picture>
 
         <h3>{{ el.name }}</h3>
+
+        <time>{{ fDate(el.published, 'fullDate') }}</time>
       </article>
     </RouterLink>
   </section>

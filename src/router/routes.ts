@@ -91,5 +91,19 @@ export const routes = [
     name: 'post',
 
     component: () => import('@/pages/post/views/indexPage.vue')
+  },
+  {
+    path: '/knowledge',
+    name: 'knowledge',
+    meta: {
+      name: 'Доска знаний'
+    },
+    component: () => import('@/pages/knowledge/views/indexView.vue')
+  },
+  {
+    path: '/knowledge/:id',
+    name: 'knowledge-page',
+
+    component: () => import('@/pages/knowledge/views/indexPage.vue')
   }
 ]
