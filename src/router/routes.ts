@@ -107,11 +107,17 @@ export const routes = [
     component: () => import('@/pages/knowledge/views/indexPage.vue')
   },
   {
-    path: '/regulatory-documentation',
-    name: 'regulatory-documentation',
+    path: '/vacancies',
+    name: 'vacancies',
     meta: {
-      name: 'Нормативная документация'
+      name: 'Вакансии'
     },
-    component: () => import('@/pages/regulatory-documentation/views/indexView.vue')
+    component: () => import('@/pages/vacancies/views/indexView.vue')
+  },
+  {
+    path: '/vacancies/:id',
+    name: 'vacancy',
+
+    component: () => import('@/pages/vacancies/views/indexPage.vue')
   }
 ]

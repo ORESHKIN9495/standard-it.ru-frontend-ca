@@ -14,7 +14,7 @@ const messages = useMessages()
 
 const store = useProjects()
 
-store.findOne(route.params.id)
+store.findOne(route.params.id as string)
 </script>
 
 <template>
@@ -37,7 +37,7 @@ store.findOne(route.params.id)
       <li>Оборудование производителя:</li>
 
       <li
-        v-for="el of store.listOne.equipments.filter((e) => e.status === true)"
+        v-for="el of store.listOne.equipments.filter((e) => e.status)"
         :key="el.id"
         :class="{ active: el.description }"
       >
