@@ -6,11 +6,14 @@ import type { Knowledge } from '../types'
 export const useKnowledge = defineStore('knowledge', () => {
   const list = ref<Knowledge[]>([])
   const listOne = ref<Knowledge>()
+  const listCollections = ref<Knowledge[]>([])
+  const filteredData = ref<Knowledge[]>([])
 
   const find = async () => {
     await axios
       .get('/knowledge')
       .then((response) => (list.value = response.data))
+      .then(() => (filteredData.value = list.value))
       .catch((error) => console.log(error))
   }
 
@@ -38,5 +41,12 @@ export const useKnowledge = defineStore('knowledge', () => {
       .catch((error) => console.log(error))
   }
 
-  return { list, listOne, find, findOne, update }
+  const findCollections = async () => {
+    await axios
+      .get('/collection/knowledge')
+      .then((response) => (listCollections.value = response.data))
+      .catch((error) => console.log(error))
+  }
+
+  return { list, listOne, find, findOne, update, listCollections, findCollections, filteredData }
 })

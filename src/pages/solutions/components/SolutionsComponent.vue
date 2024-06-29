@@ -1,33 +1,17 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
 import { useSolutions } from '../store/useSolutions'
 import FilterComponent from './FilterComponent.vue'
 
 const url = import.meta.env.VITE_URL
 const store = useSolutions()
-
-store.find()
-
-const index = ref({
-  selected: 'all',
-  name: 'все'
-})
-
-const filteredList = computed(() => {
-  if (index.value.selected === 'all') {
-    return store.list
-  } else {
-    return store.list.filter((el) => el.collection.some((el) => el.name === index.value.name))
-  }
-})
 </script>
 
 <template>
   <section>
-    <FilterComponent v-on:selected="index = $event"></FilterComponent>
+    <FilterComponent></FilterComponent>
 
     <RouterLink
-      v-for="el of filteredList.filter((e) => e.status === true)"
+      v-for="el of store.filteredData.filter((e) => e.status === true)"
       :key="el.id"
       :to="{ name: 'solution', params: { id: el.id }, state: { el: JSON.stringify({ ...el }) } }"
       custom

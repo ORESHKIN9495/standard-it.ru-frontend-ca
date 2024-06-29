@@ -32,16 +32,6 @@ export const useFilter = defineStore('postsFilter', () => {
   ])
 
   const prepare = (data: string, type: string) => {
-    if (type === 'every') {
-      filteredParams.value = {
-        month: 'Выберите месяц',
-        year: 'Выберите год',
-        manufacturer: 'Выберите производителя'
-      }
-
-      store.filteredData = store.list
-    }
-
     if (type === 'month') {
       filteredParams.value.month = data
       store.filteredData = store.list.filter(
@@ -113,5 +103,15 @@ export const useFilter = defineStore('postsFilter', () => {
     }
   }
 
-  return { date, filteredParams, prepare, getYars }
+  const reset = () => {
+    filteredParams.value = {
+      month: 'Выберите месяц',
+      year: 'Выберите год',
+      manufacturer: 'Выберите производителя'
+    }
+
+    store.filteredData = store.list
+  }
+
+  return { date, filteredParams, prepare, getYars, reset }
 })

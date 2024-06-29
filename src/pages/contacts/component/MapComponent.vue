@@ -9,7 +9,7 @@ onMounted(async () => {
 
   const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3
 
-  const coordinates = [44.4798, 48.776499]
+  const coordinates = [44.479776, 48.776468]
 
   const map = new YMap(document.getElementById('map') as HTMLDivElement, {
     location: {

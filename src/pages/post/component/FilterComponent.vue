@@ -34,7 +34,7 @@ manufacturers.find()
     <span>Фильтр по типу</span>
 
     <div>
-      <span v-on:click="filter.prepare('', 'every')">Все</span>
+      <span v-on:click="filter.reset()">Все</span>
 
       <DropDownComponent :data="filter.date.map((el) => el.month)" type="month" />
 
@@ -62,13 +62,14 @@ aside {
     display: grid;
     gap: 10px;
     grid-column: 1 / -1;
-    grid-template: 50px / auto repeat(3, minmax(auto, 270px)) 1fr;
+    grid-template: auto / auto repeat(3, minmax(auto, 270px)) 1fr;
 
     span {
       align-items: center;
       background-color: #ffffff10;
       cursor: pointer;
       display: flex;
+      height: 50px;
       padding: 5px 20px;
     }
   }
@@ -83,7 +84,7 @@ aside {
 @media only screen and (max-width: 840px) {
   aside {
     div {
-      grid-template: 50px / auto auto;
+      grid-template: auto / auto auto;
     }
   }
 }
@@ -93,7 +94,7 @@ aside {
     grid-template: auto / auto;
 
     div {
-      grid-template: 50px / 1fr;
+      grid-template: auto / 1fr;
     }
   }
 }

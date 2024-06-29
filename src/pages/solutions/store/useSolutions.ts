@@ -7,11 +7,13 @@ export const useSolutions = defineStore('solutions', () => {
   const list = ref<Solution[]>([])
   const listOne = ref<Solution>()
   const listCollections = ref<Collection[]>([])
+  const filteredData = ref<Solution[]>([])
 
   const find = async () => {
     await axios
       .get('/solutions')
       .then((response) => (list.value = response.data))
+      .then(() => (filteredData.value = list.value))
       .catch((error) => console.log(error))
   }
 
@@ -29,5 +31,5 @@ export const useSolutions = defineStore('solutions', () => {
       .catch((error) => console.log(error))
   }
 
-  return { list, find, findOne, listOne, listCollections, findCollections }
+  return { list, find, findOne, listOne, listCollections, findCollections, filteredData }
 })

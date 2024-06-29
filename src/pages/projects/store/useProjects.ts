@@ -6,11 +6,14 @@ import type { Project } from '../types'
 export const useProjects = defineStore('projects', () => {
   const list = ref<Project[]>([])
   const listOne = ref<Project>()
+  const filteredData = ref<Project[]>([])
+  const listCollections = ref<Project[]>([])
 
   const find = async () => {
     await axios
       .get('/projects')
       .then((response) => (list.value = response.data))
+      .then(() => (filteredData.value = list.value))
       .catch((error) => console.log(error))
   }
 
@@ -38,5 +41,12 @@ export const useProjects = defineStore('projects', () => {
       .catch((error) => console.log(error))
   }
 
-  return { list, listOne, find, findOne, update }
+  const findCollections = async () => {
+    await axios
+      .get('/collection/projects')
+      .then((response) => (listCollections.value = response.data))
+      .catch((error) => console.log(error))
+  }
+
+  return { list, listOne, find, findOne, update, filteredData, listCollections, findCollections }
 })
