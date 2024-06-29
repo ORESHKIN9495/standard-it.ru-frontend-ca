@@ -5,13 +5,23 @@ import type { RegulatoryDocumentation } from '../types'
 
 export const useRegulatoryDocumentation = defineStore('regulatory-documentation', () => {
   const list = ref<RegulatoryDocumentation[]>([])
+  const filteredData = ref<RegulatoryDocumentation[]>([])
+  const listCollections = ref<RegulatoryDocumentation[]>([])
 
   const find = async () => {
     await axios
       .get('/regulatory-documentation')
       .then((response) => (list.value = response.data))
+      .then(() => (filteredData.value = list.value))
       .catch((error) => console.log(error))
   }
 
-  return { find, list }
+  const findCollections = async () => {
+    await axios
+      .get('/collection/regulatory-documentation')
+      .then((response) => (listCollections.value = response.data))
+      .catch((error) => console.log(error))
+  }
+
+  return { find, list, listCollections, findCollections, filteredData }
 })

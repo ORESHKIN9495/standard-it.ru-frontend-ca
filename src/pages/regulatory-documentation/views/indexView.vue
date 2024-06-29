@@ -1,25 +1,11 @@
 <script setup lang="ts">
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
-import { computed, ref } from 'vue'
 import FilterComponent from '../components/FilterComponent.vue'
 import { useRegulatoryDocumentation } from '../store/useRegulatoryDocumentation'
 
 const url = import.meta.env.VITE_URL
 
 const store = useRegulatoryDocumentation()
-
-const index = ref({
-  selected: 'all',
-  name: 'все'
-})
-
-const filteredList = computed(() => {
-  if (index.value.selected === 'all') {
-    return store.list
-  } else {
-    return store.list.filter((el) => el.collection.some((el) => el.name === index.value.name))
-  }
-})
 
 store.find()
 </script>
@@ -28,11 +14,11 @@ store.find()
   <main>
     <CrumbsComponent crumb="Правовая документация" />
 
-    <FilterComponent v-on:selected="index = $event"></FilterComponent>
+    <FilterComponent></FilterComponent>
 
     <section>
       <ul>
-        <li v-for="el of filteredList.filter((el) => el.status === true)" :key="el.id">
+        <li v-for="el of store.filteredData.filter((el) => el.status)" :key="el.id">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

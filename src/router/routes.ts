@@ -105,5 +105,13 @@ export const routes = [
     name: 'knowledge-page',
 
     component: () => import('@/pages/knowledge/views/indexPage.vue')
+  },
+  {
+    path: '/regulatory-documentation',
+    name: 'regulatory-documentation',
+    meta: {
+      name: 'Нормативная документация'
+    },
+    component: () => import('@/pages/regulatory-documentation/views/indexView.vue')
   }
 ]
