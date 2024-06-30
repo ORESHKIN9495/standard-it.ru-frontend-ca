@@ -17,7 +17,7 @@ const active = ref(false)
     </RouterLink>
 
     <nav>
-      <RouterLink :to="{ name: 'home' }">Оборудование</RouterLink>
+      <RouterLink :to="{ name: 'equipments' }">Оборудование</RouterLink>
 
       <RouterLink :to="{ name: 'services' }">Каталог услуг</RouterLink>
 

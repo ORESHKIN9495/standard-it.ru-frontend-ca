@@ -41,7 +41,7 @@ solutions.find()
     </nav>
 
     <nav>
-      <h4>Решенияг</h4>
+      <h4>Решения</h4>
 
       <a v-for="el of solutions.list.slice(0, 5).filter((el) => el.status === true)" :key="el.id">
         {{ el.name }}

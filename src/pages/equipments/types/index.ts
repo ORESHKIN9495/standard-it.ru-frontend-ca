@@ -6,7 +6,7 @@ interface Equipment {
   description: string
   status: boolean
   collection: Collection[]
-  manufacturer: Manufacturer[]
+  manufacturers: Manufacturer[]
 }
 
 interface Collection {
@@ -17,4 +17,4 @@ interface Collection {
   image: string
 }
 
-export type { Equipment }
+export type { Collection, Equipment }

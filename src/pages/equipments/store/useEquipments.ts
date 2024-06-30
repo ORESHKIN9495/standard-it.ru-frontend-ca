@@ -1,17 +1,20 @@
 import { axios } from '@/commom/axios'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { Equipment } from '../types'
+import type { Collection, Equipment } from '../types'
 
 export const useEquipments = defineStore('equipments', () => {
   const list = ref<Equipment[]>([])
   const listOne = ref<Equipment>()
+  const listCollections = ref<Collection[]>([])
 
   const find = async () => {
     await axios
       .get('/equipments')
       .then((response) => (list.value = response.data))
       .catch((error) => console.log(error))
+
+    findCollections()
   }
 
   const findOne = async (id: string) => {
@@ -21,5 +24,12 @@ export const useEquipments = defineStore('equipments', () => {
       .catch((error) => console.log(error))
   }
 
-  return { find, findOne, list, listOne }
+  const findCollections = async () => {
+    await axios
+      .get('/collection/equipments')
+      .then((response) => (listCollections.value = response.data))
+      .catch((error) => console.log(error))
+  }
+
+  return { find, findOne, list, listOne, listCollections, findCollections }
 })

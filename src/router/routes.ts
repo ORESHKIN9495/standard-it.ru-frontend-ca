@@ -127,5 +127,33 @@ export const routes = [
       name: 'Сертификаты'
     },
     component: () => import('@/pages/certificates/views/indexView.vue')
+  },
+  {
+    path: '/equipments',
+    name: 'equipments',
+    meta: {
+      name: 'Оборудование'
+    },
+    component: () => import('@/pages/equipments/views/indexView.vue')
+  },
+  {
+    path: '/equipments/:id',
+    name: 'equipment',
+
+    component: () => import('@/pages/equipments/views/indexPage.vue')
+  },
+
+  {
+    path: '/equipments/manufacturers/:id',
+    name: 'manufacturers',
+    meta: {
+      name: 'Производители'
+    },
+    component: () => import('@/pages/manufacturers/views/indexView.vue')
+  },
+  {
+    path: '/equipments/manufacturer/:id',
+    name: 'manufacturer',
+    component: () => import('@/pages/manufacturers/views/indexPage.vue')
   }
 ]
