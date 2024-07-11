@@ -21,9 +21,5 @@ const props = defineProps({
 <style scoped lang="scss">
 article {
   grid-template: auto / auto;
-
-  &:hover {
-    transform: translateY(-10px);
-  }
 }
 </style>

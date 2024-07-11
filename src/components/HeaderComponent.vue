@@ -9,7 +9,7 @@ const active = ref(false)
 </script>
 
 <template>
-  <header>
+  <header id="header">
     <RouterLink :to="{ name: 'home' }" custom v-slot="{ navigate }">
       <svg width="152" height="48" v-on:click="navigate">
         <use xlink:href="@/assets/images/sprites.svg#logo"></use>

@@ -29,6 +29,7 @@ svg {
   cursor: pointer;
   grid-column: 2 / -1;
   opacity: 0.6;
+  margin: 20px 0 0;
 
   &:hover {
     opacity: 1;

@@ -9,32 +9,37 @@ store.find()
 
 <template>
   <aside>
-    <article
+    <RouterLink
       v-for="el of sortBy(store.list, 'published')
         .reverse()
-        .filter((el) => el.status === true)
+        .filter((el) => el.status)
         .slice(0, 3)"
       :key="el.id"
+      :to="{ name: 'post', params: { id: el.id } }"
+      custom
+      v-slot="{ navigate }"
     >
-      <h3>
-        {{ el.name }}
-      </h3>
+      <article v-on:click="navigate">
+        <h3>
+          {{ el.name }}
+        </h3>
 
-      <p>{{ el.description.slice(0, 185) }}...</p>
+        <p>{{ el.description.slice(0, 185) }}...</p>
 
-      <svg
-        width="10"
-        height="16"
-        viewBox="0 0 10 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M1.227.852a.562.562 0 0 1 .796 0l6.75 6.75a.563.563 0 0 1 0 .796l-6.75 6.75a.563.563 0 0 1-.796-.796L7.58 8 1.227 1.648a.562.562 0 0 1 0-.796Z"
-          stroke="currentColor"
-        />
-      </svg>
-    </article>
+        <svg
+          width="10"
+          height="16"
+          viewBox="0 0 10 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.227.852a.562.562 0 0 1 .796 0l6.75 6.75a.563.563 0 0 1 0 .796l-6.75 6.75a.563.563 0 0 1-.796-.796L7.58 8 1.227 1.648a.562.562 0 0 1 0-.796Z"
+            stroke="currentColor"
+          />
+        </svg>
+      </article>
+    </RouterLink>
   </aside>
 </template>
 

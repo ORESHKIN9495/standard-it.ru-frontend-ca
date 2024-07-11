@@ -44,6 +44,23 @@ manufacturers.find()
         :data="getManufacturers.map((el) => el.name).sort((a, b) => a.localeCompare(b))"
         type="manufacturer"
       />
+
+      <span v-on:click="filter.state = !filter.state">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+          :class="{ active: filter.state }"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 1.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 0-1h-13a.5.5 0 0 0-.5.5m0 13a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 0-1h-13a.5.5 0 0 0-.5.5"
+          />
+          <path d="M2 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+        </svg>
+      </span>
     </div>
   </aside>
 </template>
@@ -62,7 +79,7 @@ aside {
     display: grid;
     gap: 10px;
     grid-column: 1 / -1;
-    grid-template: auto / auto repeat(3, minmax(auto, 270px)) 1fr;
+    grid-template: auto / auto repeat(3, minmax(auto, 270px)) auto 1fr;
 
     span {
       align-items: center;
@@ -71,6 +88,19 @@ aside {
       display: flex;
       height: 50px;
       padding: 5px 20px;
+
+      &:last-of-type {
+        width: fit-content;
+      }
+    }
+
+    svg {
+      transition: 0.3s ease-in-out;
+      transform: rotate(-90deg);
+
+      &.active {
+        transform: rotate(0);
+      }
     }
   }
 }

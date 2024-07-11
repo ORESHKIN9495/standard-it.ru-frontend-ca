@@ -15,7 +15,7 @@ solutions.find()
 </script>
 
 <template>
-  <footer>
+  <footer id="footer">
     <nav>
       <RouterLink to="/" custom v-slot="{ navigate }">
         <svg width="152" height="48" v-on:click="navigate">

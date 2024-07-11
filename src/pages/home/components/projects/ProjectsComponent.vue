@@ -16,7 +16,9 @@ const store = useProjects()
         технологий, с акцентом на инновации, креативность и профессионализм.
       </p>
 
-      <ButtonComponent title="Подробнее" inverse />
+      <RouterLink :to="{ name: 'projects' }" custom v-slot="{ navigate }">
+        <ButtonComponent v-on:click="navigate" title="Подробнее" inverse />
+      </RouterLink>
     </article>
 
     <CardComponent
@@ -33,6 +35,7 @@ section {
   display: grid;
   gap: 40px;
   grid-template: auto / repeat(4, 1fr);
+  padding: clamp(20px, 4vw, 40px);
 
   article {
     &:first-of-type {

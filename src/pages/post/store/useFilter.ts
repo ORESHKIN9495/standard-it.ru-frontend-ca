@@ -6,6 +6,8 @@ import { usePosts } from '../store/usePosts'
 const store = usePosts()
 
 export const useFilter = defineStore('postsFilter', () => {
+  const state = ref(false)
+
   const date = ref([
     { id: 1, month: 'январь' },
     { id: 2, month: 'февраль' },
@@ -113,5 +115,5 @@ export const useFilter = defineStore('postsFilter', () => {
     store.filteredData = store.list
   }
 
-  return { date, filteredParams, prepare, getYars, reset }
+  return { date, filteredParams, prepare, getYars, reset, state }
 })

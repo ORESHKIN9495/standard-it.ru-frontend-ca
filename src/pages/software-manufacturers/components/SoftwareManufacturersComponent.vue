@@ -1,12 +1,19 @@
 <script setup lang="ts">
+import { useSoftware } from '@/pages/software/store'
+import { uniqBy } from 'lodash'
 import { computed } from 'vue'
-import { useEquipments } from '../store/useEquipments'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const url = import.meta.env.VITE_URL
 
-const store = useEquipments()
+const store = useSoftware()
 
-const collections = computed(() => store.list.map((el) => el.collection).flat())
+const collections = computed(() =>
+  store.list.filter((el) => el.collection.some((e) => e.id === +route.params.id)).flat()
+)
+const manufacturer = computed(() => collections.value.map((el) => el.manufacturers).flat())
 
 store.find()
 </script>
@@ -17,19 +24,18 @@ store.find()
       <h1>{{ $route.meta.name }}</h1>
 
       <p>
-        Раздел IT оборудования на нашем сайте представляет широкий ассортимент высококачественных
-        компьютерных комплектующих и периферийных устройств от ведущих мировых производителей. В
-        нашем каталоге вы найдете все необходимое для сборки мощного компьютера, а также множество
-        полезных аксессуаров для удобной и эффективной работы.
+        Информация о ведущих компаниях в сфере информационных технологий, их продуктах и роли на
+        рынке.
       </p>
     </aside>
 
     <RouterLink
-      v-for="el of store.listCollections.filter((el) =>
-        collections.some((e) => e.name === el.name && e.status)
+      v-for="el of uniqBy(
+        manufacturer.filter((el) => el.status),
+        'name'
       )"
       :key="el.id"
-      :to="{ name: 'manufacturers', params: { id: el.id } }"
+      :to="{ name: 'software-manufacturer', params: { id: el.id } }"
       custom
       v-slot="{ navigate }"
     >
@@ -78,21 +84,12 @@ section {
       }
     }
   }
-}
 
-@media only screen and (max-width: 1500px) {
-  section {
+  @media only screen and (max-width: 1500px) {
     grid-template: auto / repeat(2, 1fr);
-
-    aside {
-      grid-column: 1 / -1;
-      grid-template: auto / 1fr;
-    }
   }
-}
 
-@media only screen and (max-width: 720px) {
-  section {
+  @media only screen and (max-width: 720px) {
     grid-template: auto / 1fr;
   }
 }

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useEquipments } from '../store/useEquipments'
+import { useSoftware } from '../store/index'
 
 const url = import.meta.env.VITE_URL
 
-const store = useEquipments()
+const store = useSoftware()
 
-const collections = computed(() => store.list.map((el) => el.collection).flat())
+const collections = computed(() =>
+  store.list.map((el) => el.collection.filter((e) => e.status)).flat()
+)
 
 store.find()
 </script>
@@ -25,17 +27,17 @@ store.find()
     </aside>
 
     <RouterLink
-      v-for="el of store.listCollections.filter((el) =>
-        collections.some((e) => e.name === el.name && e.status)
+      v-for="el of store.listCollections.filter(
+        (el) => collections.some((e) => e.name === el.name) && el.status
       )"
       :key="el.id"
-      :to="{ name: 'manufacturers', params: { id: el.id } }"
+      :to="{ name: 'software-manufacturers', params: { id: el.id } }"
       custom
       v-slot="{ navigate }"
     >
       <article v-on:click="navigate" class="card">
         <picture>
-          <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" />
+          <!-- <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" /> -->
         </picture>
 
         <h3>{{ el.name }}</h3>
@@ -78,21 +80,12 @@ section {
       }
     }
   }
-}
 
-@media only screen and (max-width: 1500px) {
-  section {
+  @media only screen and (max-width: 1500px) {
     grid-template: auto / repeat(2, 1fr);
-
-    aside {
-      grid-column: 1 / -1;
-      grid-template: auto / 1fr;
-    }
   }
-}
 
-@media only screen and (max-width: 720px) {
-  section {
+  @media only screen and (max-width: 720px) {
     grid-template: auto / 1fr;
   }
 }

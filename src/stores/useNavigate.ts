@@ -46,6 +46,10 @@ export const useNavigate = defineStore('useNavigate', () => {
         {
           name: 'Вакансии',
           route: 'vacancies'
+        },
+        {
+          name: 'ПО',
+          route: 'software'
         }
       ]
     },
