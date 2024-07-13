@@ -7,6 +7,7 @@ export const usePosts = defineStore('posts', () => {
   const list = ref<Posts[]>([])
   const listOne = ref<Posts>()
   const filteredData = ref<Posts[]>([])
+  const state = ref(false)
 
   const find = async () => {
     await axios
@@ -40,5 +41,5 @@ export const usePosts = defineStore('posts', () => {
       .catch((error) => console.log(error))
   }
 
-  return { list, listOne, find, findOne, update, filteredData }
+  return { list, listOne, find, findOne, update, filteredData, state }
 })

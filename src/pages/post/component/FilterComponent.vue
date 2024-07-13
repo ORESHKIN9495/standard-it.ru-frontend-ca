@@ -45,14 +45,14 @@ manufacturers.find()
         type="manufacturer"
       />
 
-      <span v-on:click="filter.state = !filter.state">
+      <span v-on:click="store.state = !store.state">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
           fill="currentColor"
           viewBox="0 0 16 16"
-          :class="{ active: filter.state }"
+          :class="{ active: store.state }"
         >
           <path
             fill-rule="evenodd"
