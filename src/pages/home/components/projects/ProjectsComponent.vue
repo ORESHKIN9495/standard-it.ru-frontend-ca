@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ButtonComponent.vue'
+import CardComponent from '@/pages/projects/components/CardComponent.vue'
 import { useProjects } from '@/pages/projects/store/useProjects'
-import CardComponent from './CardComponent.vue'
 
 const store = useProjects()
 </script>
@@ -21,11 +21,15 @@ const store = useProjects()
       </RouterLink>
     </article>
 
-    <CardComponent
-      v-for="el in store.list.filter((el) => el.status === true).slice(0, 7)"
+    <RouterLink
+      v-for="el in store.list.filter((el) => el.status).slice(0, 7)"
       :key="el.id"
-      :data="el"
-    />
+      :to="{ name: 'project', params: { id: el.id } }"
+      custom
+      v-slot="{ navigate }"
+    >
+      <CardComponent :data="el" v-on:click="navigate" />
+    </RouterLink>
   </section>
 </template>
 
@@ -35,7 +39,7 @@ section {
   display: grid;
   gap: 40px;
   grid-template: auto / repeat(4, 1fr);
-  padding: clamp(20px, 4vw, 40px);
+  padding: clamp(20px, 4vw, 40px) 0;
 
   article {
     &:first-of-type {
@@ -48,12 +52,16 @@ section {
       }
     }
   }
+}
 
-  @media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1500px) {
+  section {
     grid-template: auto / repeat(2, 1fr);
   }
+}
 
-  @media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
+  section {
     grid-template: auto / 1fr;
   }
 }

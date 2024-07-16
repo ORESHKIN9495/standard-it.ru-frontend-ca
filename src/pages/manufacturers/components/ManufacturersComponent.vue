@@ -3,10 +3,9 @@ import { useEquipments } from '@/pages/equipments/store/useEquipments'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useManufacturers } from '../store/useManufacturers'
+import CardComponent from './CardComponent.vue'
 
 const route = useRoute()
-
-const url = import.meta.env.VITE_URL
 
 const store = useManufacturers()
 
@@ -41,13 +40,7 @@ store.find()
       custom
       v-slot="{ navigate }"
     >
-      <article v-on:click="navigate" class="card">
-        <picture>
-          <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" />
-        </picture>
-
-        <h3>{{ el.name }}</h3>
-      </article>
+      <CardComponent :data="el" v-on:click="navigate" />
     </RouterLink>
   </section>
 </template>
@@ -68,30 +61,16 @@ section {
     grid-template: 1fr auto / repeat(2, 1fr);
     padding: clamp(20px, 4vw, 40px);
   }
+}
 
-  article {
-    picture {
-      overflow: hidden;
-
-      img {
-        transition: 0.2s ease-in-out;
-      }
-    }
-
-    &:hover {
-      picture {
-        img {
-          transform: scale(1.2);
-        }
-      }
-    }
-  }
-
-  @media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1500px) {
+  section {
     grid-template: auto / repeat(2, 1fr);
   }
+}
 
-  @media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
+  section {
     grid-template: auto / 1fr;
   }
 }

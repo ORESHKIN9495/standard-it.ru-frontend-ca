@@ -8,11 +8,19 @@ const store = useServices()
   <section>
     <h2>Направления деятельности</h2>
 
-    <article v-for="el of store.list.slice(0, 4).filter((el) => el.status === true)" :key="el.id">
-      <h3>{{ el.name }}</h3>
+    <RouterLink
+      v-for="el of store.list.slice(0, 4).filter((el) => el.status)"
+      :key="el.id"
+      :to="{ name: 'service', params: { id: el.id } }"
+      custom
+      v-slot="{ navigate }"
+    >
+      <article>
+        <h3 v-on:click="navigate">{{ el.name }}</h3>
 
-      <p>{{ el.description }}</p>
-    </article>
+        <p>{{ el.description }}</p>
+      </article>
+    </RouterLink>
   </section>
 </template>
 
@@ -45,8 +53,10 @@ section {
       margin: 10px 0 0;
     }
   }
+}
 
-  @media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
+  section {
     grid-template: auto / 1fr;
   }
 }

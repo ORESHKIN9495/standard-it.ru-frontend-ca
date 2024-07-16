@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const props = defineProps({
-  data: { type: Object, required: true }
+  data: Object
 })
 </script>
 
 <template>
   <article>
-    <h3>{{ props.data.name }}</h3>
+    <h3>{{ props.data?.name }}</h3>
 
-    <p>{{ props.data.content.slice(0, 200) }}...</p>
+    <p>{{ props.data?.content.slice(0, 200) }}...</p>
   </article>
 </template>
 

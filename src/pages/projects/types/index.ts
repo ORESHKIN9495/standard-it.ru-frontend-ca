@@ -1,3 +1,4 @@
+import type { Equipment } from '@/pages/equipments/types'
 import type { Service } from '@/pages/services/types'
 
 interface Project {
@@ -9,7 +10,7 @@ interface Project {
   status: boolean
   views: number
   services: Service[]
-  equipments: []
+  equipments: Equipment[]
   collection: Collection[]
 }
 

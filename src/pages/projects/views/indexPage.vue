@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import CrumbsComponent from '@/components/CrumbsComponent.vue'
-
 import ButtonComponent from '@/components/ButtonComponent.vue'
+import CrumbsComponent from '@/components/CrumbsComponent.vue'
 import { useMessages } from '@/stores/useMessages'
 import { useRoute } from 'vue-router'
 import { useProjects } from '../store/useProjects'
@@ -36,23 +35,22 @@ store.findOne(route.params.id as string)
     <ul>
       <li>Оборудование производителя:</li>
 
-      <li
+      <RouterLink
         v-for="el of store.listOne.equipments.filter((e) => e.status)"
+        custom
+        v-slot="{ navigate }"
         :key="el.id"
-        :class="{ active: el.description }"
+        :to="{
+          name: 'equipment',
+          params: { id: el.id }
+        }"
       >
-        <RouterLink
-          v-if="el.description"
-          :to="{
-            name: 'equipment',
-            params: { id: el.id }
-          }"
-        >
+        <li v-if="el.description" v-on:click="navigate" :class="{ active: el.description }">
           {{ el.name }}
-        </RouterLink>
+        </li>
 
-        <a v-else>{{ el.name }}</a>
-      </li>
+        <li v-else>{{ el.name }}</li>
+      </RouterLink>
     </ul>
 
     <article>
@@ -103,15 +101,16 @@ main {
 
       &.active {
         &:hover {
-          color: var(--c-theme);
           cursor: pointer;
-          text-decoration: none;
+          color: rgb(var(--color-theme));
         }
       }
     }
   }
+}
 
-  @media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
+  main {
     grid-template: auto / 1fr;
   }
 }

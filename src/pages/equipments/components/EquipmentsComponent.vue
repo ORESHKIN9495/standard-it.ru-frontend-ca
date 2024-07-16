@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useEquipments } from '../store/useEquipments'
-
-const url = import.meta.env.VITE_URL
+import CardComponent from './CardComponent.vue'
 
 const store = useEquipments()
 
@@ -33,13 +32,7 @@ store.find()
       custom
       v-slot="{ navigate }"
     >
-      <article v-on:click="navigate" class="card">
-        <picture>
-          <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" />
-        </picture>
-
-        <h3>{{ el.name }}</h3>
-      </article>
+      <CardComponent :data="el" v-on:click="navigate" />
     </RouterLink>
   </section>
 </template>
@@ -59,24 +52,6 @@ section {
     grid-column: 1 / 5;
     grid-template: 1fr auto / repeat(2, 1fr);
     padding: clamp(20px, 4vw, 40px);
-  }
-
-  article {
-    picture {
-      overflow: hidden;
-
-      img {
-        transition: 0.2s ease-in-out;
-      }
-    }
-
-    &:hover {
-      picture {
-        img {
-          transform: scale(1.2);
-        }
-      }
-    }
   }
 }
 

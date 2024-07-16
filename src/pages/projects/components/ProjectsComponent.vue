@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useProjects } from '../store/useProjects'
+import CardComponent from './CardComponent.vue'
 import FilterComponent from './FilterComponent.vue'
-
-const url = import.meta.env.VITE_URL
 
 const store = useProjects()
 </script>
@@ -18,13 +17,7 @@ const store = useProjects()
       custom
       v-slot="{ navigate }"
     >
-      <article v-on:click="navigate">
-        <picture>
-          <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" />
-        </picture>
-
-        <h3>{{ el.name }}</h3>
-      </article>
+      <CardComponent :data="el" v-on:click="navigate" />
     </RouterLink>
   </section>
 </template>
@@ -35,45 +28,16 @@ section {
   display: grid;
   grid-template: auto / repeat(5, 1fr);
   gap: 40px;
-  padding: 0 0 40px;
+}
 
-  article {
-    background-color: #ffffff;
-    cursor: pointer;
-    padding: 20px;
-    transition: 0.2s ease-in-out;
-
-    picture {
-      height: 200px;
-      margin: 0 0 20px;
-      overflow: hidden;
-
-      img {
-        object-fit: cover;
-        transition: 0.2s ease-in-out;
-      }
-    }
-
-    h3 {
-      font-size: 16px;
-    }
-
-    &:hover {
-      box-shadow: 0 20px 20px -10px rgba(21, 31, 50, 0.15);
-
-      picture {
-        img {
-          transform: scale(1.2);
-        }
-      }
-    }
-  }
-
-  @media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1500px) {
+  section {
     grid-template: auto / repeat(2, 1fr);
   }
+}
 
-  @media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
+  section {
     grid-template: auto / 1fr;
   }
 }
