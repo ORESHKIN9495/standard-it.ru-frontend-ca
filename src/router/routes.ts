@@ -182,5 +182,13 @@ export const routes = [
     name: 'software-manufacturer',
 
     component: () => import('@/pages/software-manufacturers/views/indexPage.vue')
+  },
+  {
+    path: '/clients',
+    name: 'clients',
+    meta: {
+      name: 'Наши клиенты'
+    },
+    component: () => import('@/pages/clients/views/indexView.vue')
   }
 ]

@@ -29,7 +29,7 @@ export const useNavigate = defineStore('useNavigate', () => {
         },
         {
           name: 'Наши клиенты',
-          route: 'home'
+          route: 'clients'
         },
         {
           name: 'Карта партнера',
