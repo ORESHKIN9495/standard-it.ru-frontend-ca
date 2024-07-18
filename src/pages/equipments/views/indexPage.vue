@@ -13,11 +13,11 @@ store.findOne(route.params.id as string)
   <main>
     <TheCrumbs :crumb="store.listOne?.name"></TheCrumbs>
 
-    <article>
+    <section>
       <h1>{{ store.listOne?.name }}</h1>
-    </article>
+    </section>
 
-    <article class="content" v-html="store.listOne?.description"></article>
+    <section class="content" v-html="store.listOne?.description" />
   </main>
 </template>
 
@@ -26,7 +26,7 @@ main {
   display: grid;
   gap: var(--theme-gap);
 
-  article:deep() {
+  section:deep() {
     background-color: rgb(var(--color-light));
     padding: clamp(20px, 2vw, 40px);
 
