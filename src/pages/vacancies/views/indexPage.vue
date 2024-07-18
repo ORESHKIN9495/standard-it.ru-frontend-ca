@@ -21,30 +21,28 @@ store.findOne(route.params.id as string)
     <CrumbsComponent :crumb="store.listOne?.name" />
 
     <section>
-      <article>
-        <h1>{{ store.listOne?.name }}</h1>
+      <h1>{{ store.listOne?.name }}</h1>
 
-        <span
-          >Заработная плата от:
-          {{ store.listOne?.cost }}
-          &#8381;</span
-        >
+      <span
+        >Заработная плата от:
+        {{ store.listOne?.cost ?? 0 }}
+        &#8381;</span
+      >
 
-        <p>{{ store.listOne?.description }}</p>
-      </article>
+      <p>{{ store.listOne?.description }}</p>
 
-      <picture>
-        <img v-if="store.listOne?.image" :src="`${url}/out/${store.listOne.image}.webp`" alt="" />
-      </picture>
+      <article class="content" v-html="store.listOne?.content" />
+    </section>
 
-      <article class="content" v-html="store.listOne?.content"></article>
+    <picture>
+      <img v-if="store.listOne?.image" :src="`${url}/out/${store.listOne.image}.webp`" alt="" />
+    </picture>
 
-      <article>
-        <ButtonComponent
-          v-on:click="(messages.state = true), (messages.title = 'Откликнуться')"
-          title="Откликнуться"
-        ></ButtonComponent>
-      </article>
+    <section>
+      <ButtonComponent
+        v-on:click="(messages.state = true), (messages.title = 'Откликнуться')"
+        title="Откликнуться"
+      ></ButtonComponent>
     </section>
   </main>
 </template>
@@ -53,14 +51,13 @@ store.findOne(route.params.id as string)
 main {
   display: grid;
   gap: var(--theme-gap);
+  grid-template: auto / repeat(2, 1fr);
 
-  section {
-    display: grid;
-    grid-template: auto / 1fr 1fr;
-    gap: var(--theme-gap);
+  nav {
+    grid-column: 1 / -1;
   }
 
-  article {
+  section {
     background-color: rgb(var(--color-light));
     padding: clamp(20px, 2vw, 40px);
 
@@ -70,16 +67,18 @@ main {
     }
 
     p {
-      margin: 20px 0 0;
+      margin: 10px 0 20px;
     }
+  }
+
+  picture {
+    grid-row: span 2;
   }
 }
 
 @media only screen and (max-width: 720px) {
   main {
-    section {
-      grid-template: auto / 1fr;
-    }
+    grid-template: auto / 1fr;
   }
 }
 </style>

@@ -29,21 +29,23 @@ const summary = (array: Cost[]) =>
   <main>
     <CrumbsComponent :crumb="store.listOne?.name" />
 
-    <article>
+    <section>
       <h1>{{ store.listOne?.name }}</h1>
 
-      <span
-        >Стоимость от:
-        {{ store.listOne?.services ? summary(store.listOne?.services[0].cost as Cost[]) : 0 }}
+      <span>
+        Стоимость от:
+        {{
+          store.listOne?.services.length ? summary(store.listOne?.services[0].cost as Cost[]) : 0
+        }}
         &#8381;</span
       >
 
       <p>{{ store.listOne?.description }}</p>
-    </article>
 
-    <article class="content" v-html="store.listOne?.content"></article>
+      <article class="content" v-html="store.listOne?.content" />
+    </section>
 
-    <article class="file" v-if="store.listOne?.file">
+    <section class="file" v-if="store.listOne?.file">
       <h3>Файл для скачивания:</h3>
 
       <svg
@@ -61,35 +63,32 @@ const summary = (array: Cost[]) =>
       <a :href="`${url}/doc/${store.listOne?.file}.zip`" target="_blank">
         {{ store.listOne?.name }}
       </a>
-    </article>
+    </section>
 
     <ul>
       <li>Сопутствующие услуги</li>
 
-      <li
-        v-for="(el, idx) of store.listOne?.services.filter((e) => e.status === true)"
+      <RouterLink
+        v-for="el of store.listOne?.services.filter((e) => e.status)"
         :key="el.id"
+        :to="{
+          name: 'service',
+          params: { id: el.id },
+          state: { el: JSON.stringify({ ...el }) }
+        }"
+        custom
+        v-slot="{ navigate }"
       >
-        <span>&#8212; {{ idx + 1 }}.</span>
-
-        <RouterLink
-          :to="{
-            name: 'service',
-            params: { id: el.id },
-            state: { el: JSON.stringify({ ...el }) }
-          }"
-        >
-          {{ el.name }}
-        </RouterLink>
-      </li>
+        <li v-on:click="navigate">{{ el.name }}</li>
+      </RouterLink>
     </ul>
 
-    <article>
+    <section>
       <ButtonComponent
         v-on:click="(messages.state = true), (messages.title = 'Консультация')"
         title="Консультация"
       ></ButtonComponent>
-    </article>
+    </section>
   </main>
 </template>
 
@@ -98,13 +97,17 @@ main {
   display: grid;
   gap: var(--theme-gap);
 
-  article {
+  section {
     background-color: rgb(var(--color-light));
     padding: clamp(20px, 2vw, 40px);
 
     span {
       font-weight: 400;
       opacity: 0.6;
+    }
+
+    p {
+      margin: 10px 0 20px;
     }
 
     &:deep() {
@@ -114,19 +117,6 @@ main {
         img {
           max-width: 600px;
         }
-      }
-    }
-
-    h3 {
-      margin: 0 0 20px;
-    }
-
-    a {
-      margin: 0 0 0 20px;
-      vertical-align: text-bottom;
-
-      &:hover {
-        color: rgb(var(--color-theme));
       }
     }
 
@@ -145,15 +135,14 @@ main {
         margin: 0 0 10px;
       }
 
-      a {
-        &:hover {
-          color: rgb(var(--color-theme));
-        }
+      &:not(:first-child) {
+        list-style-type: '- ';
+        margin: 0 0 0 10px;
       }
 
-      span {
+      &:hover {
+        cursor: pointer;
         color: rgb(var(--color-theme));
-        margin: 0 10px 0 0;
       }
     }
   }

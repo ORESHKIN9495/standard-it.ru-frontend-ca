@@ -20,13 +20,13 @@ store.findOne(route.params.id as string)
   <main v-if="store.listOne">
     <CrumbsComponent :crumb="store.listOne.name"></CrumbsComponent>
 
-    <article>
+    <section>
       <h1>{{ store.listOne.name }}</h1>
 
       <p>{{ store.listOne.description }}</p>
 
-      <article class="content" v-html="store.listOne.content"></article>
-    </article>
+      <article class="content" v-html="store.listOne.content" />
+    </section>
 
     <picture>
       <img v-if="store.listOne.image" :src="`${url}/out/${store.listOne.image}.webp`" alt="" />
@@ -53,12 +53,12 @@ store.findOne(route.params.id as string)
       </RouterLink>
     </ul>
 
-    <article>
+    <section>
       <ButtonComponent
         v-on:click="(messages.state = true), (messages.title = 'Консультация')"
         title="Консультация"
       ></ButtonComponent>
-    </article>
+    </section>
   </main>
 </template>
 
@@ -72,12 +72,12 @@ main {
     grid-column: 1 / -1;
   }
 
-  article {
+  section {
     background-color: rgb(var(--color-light));
     padding: clamp(20px, 2vw, 40px);
 
     p {
-      margin: 20px 0;
+      margin: 10px 0 20px;
     }
 
     &:last-of-type {
@@ -97,6 +97,11 @@ main {
       &:first-of-type {
         font-weight: 400;
         font-size: 20px;
+      }
+
+      &:not(:first-of-type) {
+        list-style-type: '- ';
+        margin: 0 0 0 10px;
       }
 
       &.active {

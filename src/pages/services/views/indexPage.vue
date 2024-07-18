@@ -27,7 +27,7 @@ const summary = (array: Cost[]) =>
   <main>
     <CrumbsComponent :crumb="store.listOne?.name" />
 
-    <article>
+    <section>
       <h1>{{ store.listOne?.name }}</h1>
 
       <span>Стоимость от: {{ summary(store.listOne?.cost as Cost[]) ?? 0 }} &#8381;</span>
@@ -38,9 +38,9 @@ const summary = (array: Cost[]) =>
         v-on:click="(messages.state = true), (messages.title = 'Консультация')"
         title="Консультация"
       ></ButtonComponent>
-    </article>
+    </section>
 
-    <article class="content" v-html="store.listOne?.content"></article>
+    <section class="content" v-html="store.listOne?.content" />
   </main>
 </template>
 
@@ -49,15 +49,17 @@ main {
   display: grid;
   gap: var(--theme-gap);
 
-  article {
+  section {
     background-color: rgb(var(--color-light));
     padding: 40px;
 
     span {
-      display: block;
       font-weight: 400;
-      margin: 0 0 10px;
       opacity: 0.6;
+    }
+
+    p {
+      margin: 10px 0 20px;
     }
 
     &:deep() {
@@ -68,10 +70,6 @@ main {
           max-width: 600px;
         }
       }
-    }
-
-    button {
-      margin: 20px 0 0;
     }
   }
 }

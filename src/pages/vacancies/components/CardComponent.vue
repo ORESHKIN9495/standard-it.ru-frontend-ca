@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { fDate } from '@/composables/useDate'
+
 const url = import.meta.env.VITE_URL
 
 const props = defineProps({
@@ -12,7 +14,9 @@ const props = defineProps({
       <img v-if="props.data?.image" :src="`${url}/out/${props.data?.image}.webp`" alt="" />
     </picture>
 
-    <h3>{{ props.data?.name }}</h3>
+    <h2>{{ props.data?.name }}</h2>
+
+    <time>{{ fDate(props.data?.published, 'fullDate') }}</time>
   </article>
 </template>
 
