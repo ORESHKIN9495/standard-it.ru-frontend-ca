@@ -7,6 +7,7 @@ interface Software {
   status: boolean
   collection: Collection[]
   manufacturers: Manufacturer[]
+  image: string
 }
 
 interface Collection {
@@ -14,7 +15,8 @@ interface Collection {
   name: string
   description: string
   status: boolean
-  related: null
+  related: []
+  image: string
 }
 
 export type { Collection, Software }

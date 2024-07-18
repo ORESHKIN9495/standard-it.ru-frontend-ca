@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { fDate } from '@/composables/useDate'
-
 const url = import.meta.env.VITE_URL
 
 const props = defineProps({
@@ -15,8 +13,6 @@ const props = defineProps({
     </picture>
 
     <h3>{{ props.data?.name }}</h3>
-
-    <time>{{ fDate(props.data?.published, 'fullDate') }}</time>
   </article>
 </template>
 

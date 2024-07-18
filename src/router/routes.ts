@@ -164,24 +164,19 @@ export const routes = [
     component: () => import('@/pages/software/views/indexView.vue')
   },
   {
+    path: '/software/collections/:id',
+    name: 'software-collection',
+    meta: {
+      name: 'Коллекция ПО'
+    },
+
+    component: () => import('@/pages/software/views/indexCollection.vue')
+  },
+  {
     path: '/software/:id',
     name: 'software-page',
 
     component: () => import('@/pages/software/views/indexPage.vue')
-  },
-  {
-    path: '/software/manufacturers/:id',
-    name: 'software-manufacturers',
-    meta: {
-      name: 'Производители ПО'
-    },
-    component: () => import('@/pages/software-manufacturers/views/indexView.vue')
-  },
-  {
-    path: '/software/manufacturer/:id',
-    name: 'software-manufacturer',
-
-    component: () => import('@/pages/software-manufacturers/views/indexPage.vue')
   },
   {
     path: '/clients',

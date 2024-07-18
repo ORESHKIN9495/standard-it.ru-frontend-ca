@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useSoftware } from '../store/index'
-
-const url = import.meta.env.VITE_URL
+import CardComponent from './CardComponent.vue'
 
 const store = useSoftware()
 
-const collections = computed(() =>
-  store.list.map((el) => el.collection.filter((e) => e.status)).flat()
-)
-
-store.find()
+store.findCollections()
 </script>
 
 <template>
@@ -27,21 +21,13 @@ store.find()
     </aside>
 
     <RouterLink
-      v-for="el of store.listCollections.filter(
-        (el) => collections.some((e) => e.name === el.name) && el.status
-      )"
+      v-for="el of store.listCollections.filter((el) => el.status)"
       :key="el.id"
-      :to="{ name: 'software-manufacturers', params: { id: el.id } }"
+      :to="{ name: 'software-collection', params: { id: el.id } }"
       custom
       v-slot="{ navigate }"
     >
-      <article v-on:click="navigate" class="card">
-        <picture>
-          <!-- <img v-if="el.image" :src="`${url}/out/${el.image}.webp`" alt="" /> -->
-        </picture>
-
-        <h3>{{ el.name }}</h3>
-      </article>
+      <CardComponent :data="el" v-on:click="navigate" />
     </RouterLink>
   </section>
 </template>
@@ -55,7 +41,7 @@ section {
 
   aside {
     background-color: rgb(var(--color-theme));
-    color: #fff;
+    color: #ffffff;
     display: grid;
     gap: 20px;
     grid-column: 1 / 5;
@@ -80,13 +66,25 @@ section {
       }
     }
   }
+}
 
-  @media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1500px) {
+  section {
     grid-template: auto / repeat(2, 1fr);
-  }
 
-  @media only screen and (max-width: 720px) {
+    aside {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  section {
     grid-template: auto / 1fr;
+
+    aside {
+      grid-template: auto / 1fr;
+    }
   }
 }
 </style>
