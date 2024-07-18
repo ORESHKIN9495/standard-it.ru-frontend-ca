@@ -12,7 +12,7 @@ export const useFilter = defineStore('servicesFilter', () => {
   const prepare = (data: string, type: string) => {
     if (type === 'collections') {
       filteredParams.value.collections = data
-      // store.filteredData = store.list.filter((el) => el.collection.some((e) => e.name === data))
+      store.filteredData = store.list.filter((el) => el.collection.some((e) => e.name === data))
     }
   }
 

@@ -7,9 +7,9 @@ import DropDownComponent from './DropDownComponent.vue'
 const filter = useFilter()
 const store = useСertificates()
 
-const collections = computed(() =>
-  store.list.map((el) => el.name).sort((a, b) => a.localeCompare(b))
-)
+const getCollections = computed(() => store.listCollections.map((el) => el.name))
+
+store.findCollections()
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const collections = computed(() =>
     <div>
       <span v-on:click="filter.reset()">Все</span>
 
-      <DropDownComponent :data="collections" type="collections" />
+      <DropDownComponent :data="getCollections" type="collections" />
     </div>
   </aside>
 </template>
@@ -33,10 +33,10 @@ const collections = computed(() =>
 <style scoped lang="scss">
 aside {
   background-color: rgb(var(--color-theme));
-  color: #fff;
+  color: #ffffff;
   display: grid;
-  grid-column: 1 / -1;
   gap: 20px;
+  grid-column: 1 / -1;
   grid-template: 1fr auto / repeat(2, 1fr);
   padding: clamp(20px, 4vw, 40px);
 
