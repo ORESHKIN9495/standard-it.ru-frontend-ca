@@ -41,16 +41,13 @@ section {
     padding: clamp(20px, 2vw, 40px);
 
     h3 {
+      margin: 0 0 10px;
       width: fit-content;
 
       &:hover {
         cursor: pointer;
         opacity: 0.6;
       }
-    }
-
-    p {
-      margin: 10px 0 0;
     }
   }
 }

@@ -2,10 +2,11 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useNavigate = defineStore('useNavigate', () => {
-  const state = ref(false)
+  const aboutState = ref(false)
+  const menuState = ref(false)
 
   const array = ref([
-    { name: 'Оборудование', route: 'eqipments' },
+    { name: 'Оборудование', route: 'equipments' },
     { name: 'Каталог услуг', route: 'services' },
     { name: 'Проекты', route: 'projects' },
     {
@@ -57,5 +58,48 @@ export const useNavigate = defineStore('useNavigate', () => {
     { name: 'Контакты', route: 'contacts' }
   ])
 
-  return { array, state }
+  const aboutList = ref([
+    {
+      name: 'Контакты',
+      route: 'contacts'
+    },
+    {
+      name: 'Новости',
+      route: 'posts'
+    },
+    {
+      name: 'Доска знаний',
+      route: 'knowledge'
+    },
+    {
+      name: 'Нормативная документация',
+      route: 'regulatory-documentation'
+    },
+    {
+      name: 'Наши клиенты',
+      route: 'clients'
+    },
+    {
+      name: 'Карта партнера',
+      route: 'card-partner'
+    },
+    {
+      name: 'Часто задаваемые вопросы',
+      route: 'questions'
+    },
+    {
+      name: 'Сертификаты',
+      route: 'certificates'
+    },
+    {
+      name: 'Вакансии',
+      route: 'vacancies'
+    },
+    {
+      name: 'ПО',
+      route: 'software'
+    }
+  ])
+
+  return { array, aboutState, menuState, aboutList }
 })

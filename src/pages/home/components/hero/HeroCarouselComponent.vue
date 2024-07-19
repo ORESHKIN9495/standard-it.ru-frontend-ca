@@ -72,6 +72,10 @@ section {
       margin: 40px 0 0;
     }
   }
+
+  svg {
+    grid-column: 2 / -1;
+  }
 }
 
 .fade-enter-active,

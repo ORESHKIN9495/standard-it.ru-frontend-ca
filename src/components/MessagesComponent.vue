@@ -7,14 +7,14 @@ const store = useMessages()
 
 <template>
   <Transition name="dialog-fade" mode="out-in">
-    <dialog open v-if="store.state">
+    <section v-if="store.state">
       <FormComponent class="form-fade" />
-    </dialog>
+    </section>
   </Transition>
 </template>
 
 <style scoped lang="scss">
-dialog {
+section {
   backdrop-filter: blur(5px);
   background-color: rgba(var(--color-text-dark), 0.1);
   inset: 0;

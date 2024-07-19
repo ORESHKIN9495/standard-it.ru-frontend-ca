@@ -8,7 +8,7 @@ store.find()
 </script>
 
 <template>
-  <aside>
+  <section>
     <RouterLink
       v-for="el of sortBy(store.list, 'published')
         .reverse()
@@ -40,11 +40,11 @@ store.find()
         </svg>
       </article>
     </RouterLink>
-  </aside>
+  </section>
 </template>
 
 <style lang="scss" scoped>
-aside {
+section {
   display: grid;
   gap: var(--theme-gap);
 
@@ -76,7 +76,7 @@ aside {
 }
 
 @media only screen and (max-width: 1140px) {
-  aside {
+  section {
     grid-template: auto / repeat(2, 1fr);
 
     article {
@@ -88,7 +88,7 @@ aside {
 }
 
 @media only screen and (max-width: 720px) {
-  aside {
+  section {
     grid-template: auto / 1fr;
   }
 }

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import DropDownComponent from '@/components/DropDownComponent.vue'
 import { useNavigate } from '@/stores/useNavigate'
-import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import AboutComponent from './AboutComponent.vue'
+import MenuComponent from './MenuComponent.vue'
 
 const store = useNavigate()
-const active = ref(false)
 </script>
 
 <template>
@@ -18,70 +17,39 @@ const active = ref(false)
 
     <nav>
       <RouterLink :to="{ name: 'equipments' }">Оборудование</RouterLink>
-
       <RouterLink :to="{ name: 'services' }">Каталог услуг</RouterLink>
-
       <RouterLink :to="{ name: 'projects' }">Проекты</RouterLink>
 
-      <a v-on:click="store.state = !store.state" v-outside="() => (store.state = false)">
+      <a v-on:click="store.aboutState = !store.aboutState">
         О компании
 
-        <svg width="10" height="10" :class="{ transition: store.state }">
+        <svg width="10" height="10" :class="{ transition: store.aboutState }">
           <use xlink:href="@/assets/images/sprites.svg#plus"></use>
         </svg>
       </a>
 
       <RouterLink :to="{ name: 'solutions' }">Решения</RouterLink>
-
       <RouterLink :to="{ name: 'contacts' }">Контакты</RouterLink>
 
-      <svg width="25" height="25" v-on:click="active = !active">
+      <svg width="25" height="25" v-on:click="store.menuState = !store.menuState">
         <use xlink:href="@/assets/images/sprites.svg#menu"></use>
       </svg>
     </nav>
 
     <nav>
       <a href="tel:8 (8442) 61-32-91">8 (8442) 61-32-91</a>
-
       <a href="mailto:info@standard-it.ru">info@standard-it.ru</a>
     </nav>
   </header>
 
-  <ul v-if="active" class="menu">
-    <RouterLink
-      v-for="el of store.array"
-      :key="el.name"
-      :to="{ name: 'home' }"
-      custom
-      v-slot="{ navigate }"
-    >
-      <li v-on:click="navigate" v-outside="() => (active = false)">
-        {{ el.name }}
-
-        <ul v-if="el.list">
-          <RouterLink
-            v-for="list of el.list"
-            :key="list.name"
-            :to="{ name: 'home' }"
-            custom
-            v-slot="{ navigate }"
-          >
-            <li v-on:click="navigate">- {{ list.name }}</li>
-          </RouterLink>
-        </ul>
-      </li>
-    </RouterLink>
-  </ul>
-
-  <DropDownComponent :class="{ show: store.state }" />
+  <MenuComponent />
+  <AboutComponent />
 </template>
 
 <style lang="scss" scoped>
 header {
-  border-color: rgb(var(--color-border-dark));
-  border-style: solid;
-  border-width: 0 0 1px;
   background-color: rgb(var(--color-light));
+  border-bottom: 1px solid rgb(var(--color-border-dark));
   display: grid;
   grid-template: 85px / 230px 1fr minmax(auto, 424px);
   position: sticky;
@@ -95,7 +63,7 @@ header {
 
   nav {
     display: flex;
-    padding: 0 20px;
+    padding: 0 clamp(20px, 2vw, 40px);
 
     &:first-of-type {
       align-items: center;
@@ -203,22 +171,6 @@ header {
       &:last-of-type {
         display: none;
       }
-    }
-  }
-}
-
-.menu {
-  inset: 86px 0 auto;
-  max-height: 400px;
-  overflow: auto;
-  position: fixed;
-  padding: clamp(20px, 2vw, 40px);
-
-  li {
-    margin: 10px 0;
-
-    ul {
-      margin: 0 0 0 20px;
     }
   }
 }
