@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useManufacturers } from '@/pages/manufacturers/store/useManufacturers'
+import { useManufacturers } from '@/pages/manufacturers/store'
 import { computed } from 'vue'
 import DropDownComponent from '../component/DropDownComponent.vue'
+import { usePosts } from '../store'
 import { useFilter } from '../store/useFilter'
-import { usePosts } from '../store/usePosts'
 
 const store = usePosts()
 const filter = useFilter()

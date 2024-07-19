@@ -4,7 +4,7 @@ import CrumbsComponent from '@/components/CrumbsComponent.vue'
 import { useMessages } from '@/stores/useMessages'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useServices } from '../store/useServices'
+import { useServices } from '../store'
 import type { Cost } from '../types'
 
 const messages = useMessages()

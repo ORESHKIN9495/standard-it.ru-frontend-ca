@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
 import FilterComponent from '../components/FilterComponent.vue'
-import { useRegulatoryDocumentation } from '../store/useRegulatoryDocumentation'
+import { useRegulatoryDocumentation } from '../store'
 
 const url = import.meta.env.VITE_URL
 

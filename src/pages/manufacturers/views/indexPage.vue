@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
-import { useEquipments } from '@/pages/equipments/store/useEquipments'
-import { useManufacturers } from '@/pages/manufacturers/store/useManufacturers'
+import { useEquipments } from '@/pages/equipments/store'
+import { useManufacturers } from '@/pages/manufacturers/store'
 import CardComponent from '@/pages/post/component/CardComponent.vue'
-import { usePosts } from '@/pages/post/store/usePosts'
+import { usePosts } from '@/pages/post/store'
 import { useRoute } from 'vue-router'
 
 const posts = usePosts()

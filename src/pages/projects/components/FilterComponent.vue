@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useServices } from '@/pages/services/store/useServices'
+import { useServices } from '@/pages/services/store'
 import { uniqBy } from 'lodash'
 import { computed } from 'vue'
+import { useProjects } from '../store'
 import { useFilter } from '../store/useFilter'
-import { useProjects } from '../store/useProjects'
 import DropDownComponent from './DropDownComponent.vue'
 
 const filter = useFilter()

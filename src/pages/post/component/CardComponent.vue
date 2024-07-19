@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { fDate } from '@/composables/useDate'
-import { usePosts } from '../store/usePosts'
+import { usePosts } from '../store'
 
 const url = import.meta.env.VITE_URL
 

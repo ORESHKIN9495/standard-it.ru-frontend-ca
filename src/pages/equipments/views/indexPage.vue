@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TheCrumbs from '@/components/CrumbsComponent.vue'
-import { useEquipments } from '@/pages/equipments/store/useEquipments'
 import { useRoute } from 'vue-router'
+import { useEquipments } from '../store'
 
 const route = useRoute()
 const store = useEquipments()

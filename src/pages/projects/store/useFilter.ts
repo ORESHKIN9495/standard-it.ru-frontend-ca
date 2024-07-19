@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { useProjects } from '../store/useProjects'
+import { useProjects } from '../store'
 
 const store = useProjects()
 

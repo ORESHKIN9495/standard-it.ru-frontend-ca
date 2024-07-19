@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useСertificates } from '../store'
 import { useFilter } from '../store/useFilter'
-import { useСertificates } from '../store/useСertificates'
 import DropDownComponent from './DropDownComponent.vue'
 
 const filter = useFilter()

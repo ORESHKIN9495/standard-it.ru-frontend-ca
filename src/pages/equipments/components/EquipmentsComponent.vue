@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useEquipments } from '../store/useEquipments'
+import { useEquipments } from '../store'
 import CardComponent from './CardComponent.vue'
 
 const store = useEquipments()

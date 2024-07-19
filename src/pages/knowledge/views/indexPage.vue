@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
 import { useRoute } from 'vue-router'
-import { useKnowledge } from '../store/useKnowledge'
+import { useKnowledge } from '../store'
 
 const url = import.meta.env.VITE_URL
 

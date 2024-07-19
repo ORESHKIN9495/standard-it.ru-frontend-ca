@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useEquipments } from '@/pages/equipments/store/useEquipments'
+import { useEquipments } from '@/pages/equipments/store'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useManufacturers } from '../store/useManufacturers'
+import { useManufacturers } from '../store'
 import CardComponent from './CardComponent.vue'
 
 const route = useRoute()

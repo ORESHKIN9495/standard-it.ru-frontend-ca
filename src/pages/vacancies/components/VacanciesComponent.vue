@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useVacancies } from '../store/useVacancies'
+import { useVacancies } from '../store'
 import CardComponent from './CardComponent.vue'
 import FilterComponent from './FilterComponent.vue'
 

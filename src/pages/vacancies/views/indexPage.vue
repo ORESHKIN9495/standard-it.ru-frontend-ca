@@ -3,7 +3,7 @@ import ButtonComponent from '@/components/ButtonComponent.vue'
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
 import { useMessages } from '@/stores/useMessages'
 import { useRoute } from 'vue-router'
-import { useVacancies } from '../store/useVacancies'
+import { useVacancies } from '../store'
 
 const messages = useMessages()
 

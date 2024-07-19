@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import CardComponent from '@/pages/projects/components/CardComponent.vue'
-import { useProjects } from '@/pages/projects/store/useProjects'
+import { useProjects } from '@/pages/projects/store'
 
 const store = useProjects()
 </script>

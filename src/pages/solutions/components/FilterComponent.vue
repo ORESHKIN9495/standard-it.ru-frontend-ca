@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useSolutions } from '../store'
 import { useFilter } from '../store/useFilter'
-import { useSolutions } from '../store/useSolutions'
 import DropDownComponent from './DropDownComponent.vue'
 
 const filter = useFilter()

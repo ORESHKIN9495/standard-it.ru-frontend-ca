@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePosts } from '@/pages/post/store/usePosts'
+import { usePosts } from '@/pages/post/store'
 import { sortBy } from 'lodash'
 
 const store = usePosts()

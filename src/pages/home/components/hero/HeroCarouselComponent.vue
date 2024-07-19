@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import { useServices } from '@/pages/services/store/useServices'
-import { useSolutions } from '@/pages/solutions/store/useSolutions'
+import { useServices } from '@/pages/services/store'
+import { useSolutions } from '@/pages/solutions/store'
 import { computed, onMounted, ref } from 'vue'
 import ScrollingComponent from './ScrollingComponent.vue'
 

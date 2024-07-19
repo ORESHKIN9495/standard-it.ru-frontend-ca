@@ -5,7 +5,7 @@ import type { Cost } from '@/pages/services/types'
 import { useMessages } from '@/stores/useMessages'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useSolutions } from '../store/useSolutions'
+import { useSolutions } from '../store'
 
 const messages = useMessages()
 
@@ -73,8 +73,7 @@ const summary = (array: Cost[]) =>
         :key="el.id"
         :to="{
           name: 'service',
-          params: { id: el.id },
-          state: { el: JSON.stringify({ ...el }) }
+          params: { id: el.id }
         }"
         custom
         v-slot="{ navigate }"

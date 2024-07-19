@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { useKnowledge } from '../store/useKnowledge'
+import { useKnowledge } from '../store'
 
 const store = useKnowledge()
 

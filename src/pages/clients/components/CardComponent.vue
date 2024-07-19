@@ -25,8 +25,7 @@ const props = defineProps({
         :key="el.id"
         :to="{
           name: 'solution',
-          params: { id: el.id },
-          state: { el: JSON.stringify({ ...el }) }
+          params: { id: el.id }
         }"
         custom
         v-slot="{ navigate }"

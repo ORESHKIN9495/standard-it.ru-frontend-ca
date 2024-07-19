@@ -3,7 +3,7 @@ import ButtonComponent from '@/components/ButtonComponent.vue'
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
 import { useMessages } from '@/stores/useMessages'
 import { useRoute } from 'vue-router'
-import { useProjects } from '../store/useProjects'
+import { useProjects } from '../store'
 
 const url = import.meta.env.VITE_URL
 

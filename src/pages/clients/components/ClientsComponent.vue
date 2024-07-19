@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { fDate } from '@/composables/useDate'
 import { computed } from 'vue'
-import { useClients } from '../store/useClients'
+import { useClients } from '../store'
 import CardComponent from './CardComponent.vue'
 
 const store = useClients()

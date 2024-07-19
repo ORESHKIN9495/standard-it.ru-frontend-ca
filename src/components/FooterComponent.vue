@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import SubscribeComponent from '@/components/SubscribeComponent.vue'
-import { useProjects } from '@/pages/projects/store/useProjects'
-import { useServices } from '@/pages/services/store/useServices'
-import { useSolutions } from '@/pages/solutions/store/useSolutions'
+import { useProjects } from '@/pages/projects/store'
+import { useServices } from '@/pages/services/store'
+import { useSolutions } from '@/pages/solutions/store'
 import { RouterLink } from 'vue-router'
 
 const project = useProjects()

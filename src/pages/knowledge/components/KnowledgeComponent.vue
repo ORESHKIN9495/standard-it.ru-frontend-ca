@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useKnowledge } from '../store/useKnowledge'
+import { useKnowledge } from '../store'
 import CardComponent from './CardComponent.vue'
 import FilterComponent from './FilterComponent.vue'
 

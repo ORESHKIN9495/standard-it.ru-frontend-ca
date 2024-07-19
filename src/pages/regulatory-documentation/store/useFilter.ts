@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { useRegulatoryDocumentation } from '../store/useRegulatoryDocumentation'
+import { useRegulatoryDocumentation } from '../store'
 
 const store = useRegulatoryDocumentation()
 

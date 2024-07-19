@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useServices } from '@/pages/services/store/useServices'
+import { useServices } from '@/pages/services/store'
 
 const store = useServices()
 </script>

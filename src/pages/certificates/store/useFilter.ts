@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { useСertificates } from '../store/useСertificates'
+import { useСertificates } from '../store'
 
 const store = useСertificates()
 

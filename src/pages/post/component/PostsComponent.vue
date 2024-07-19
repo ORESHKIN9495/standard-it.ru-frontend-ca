@@ -3,8 +3,7 @@ import { sortBy } from 'lodash'
 import { ref, watchEffect } from 'vue'
 import { RouterLink } from 'vue-router'
 import FilterComponent from '../component/FilterComponent.vue'
-import { usePosts } from '../store/usePosts'
-
+import { usePosts } from '../store'
 import CardComponent from './CardComponent.vue'
 
 const store = usePosts()

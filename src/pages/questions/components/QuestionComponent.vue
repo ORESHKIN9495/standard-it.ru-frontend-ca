@@ -2,7 +2,7 @@
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { useMessages } from '@/stores/useMessages'
 import { ref } from 'vue'
-import { useQuestions } from '../store/useQuestions'
+import { useQuestions } from '../store'
 
 const messages = useMessages()
 const store = useQuestions()

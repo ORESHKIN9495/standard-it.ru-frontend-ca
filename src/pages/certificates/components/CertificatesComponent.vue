@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useСertificates } from '../store/useСertificates'
+import { useСertificates } from '../store'
 
 const url = import.meta.env.VITE_URL
 const store = useСertificates()

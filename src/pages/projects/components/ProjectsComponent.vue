@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useProjects } from '../store/useProjects'
+import { useProjects } from '../store'
 import CardComponent from './CardComponent.vue'
 import FilterComponent from './FilterComponent.vue'
 
@@ -11,9 +11,9 @@ const store = useProjects()
     <FilterComponent></FilterComponent>
 
     <RouterLink
-      v-for="el of store.filteredData.filter((el) => el.status === true)"
+      v-for="el of store.filteredData.filter((el) => el.status)"
       :key="el.name"
-      :to="{ name: 'project', params: { id: el.id }, state: { el: JSON.stringify({ ...el }) } }"
+      :to="{ name: 'project', params: { id: el.id } }"
       custom
       v-slot="{ navigate }"
     >

@@ -1,7 +1,7 @@
 import { fDate } from '@/composables/useDate'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useVacancies } from '../store/useVacancies'
+import { useVacancies } from '../store'
 
 const store = useVacancies()
 

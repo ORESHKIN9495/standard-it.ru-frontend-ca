@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useServices } from '../store/useServices'
+import { useServices } from '../store'
 import CardComponent from './CardComponent.vue'
 import FilterComponent from './FilterComponent.vue'
 
@@ -11,7 +11,7 @@ const store = useServices()
     <FilterComponent></FilterComponent>
 
     <RouterLink
-      v-for="el of store.filteredData.filter((e) => e.status === true)"
+      v-for="el of store.filteredData.filter((e) => e.status)"
       :key="el.id"
       :to="{ name: 'service', params: { id: el.id } }"
       custom
