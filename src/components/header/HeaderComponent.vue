@@ -8,7 +8,7 @@ const store = useNavigate()
 </script>
 
 <template>
-  <header id="header">
+  <header>
     <RouterLink :to="{ name: 'home' }" custom v-slot="{ navigate }">
       <svg width="152" height="48" v-on:click="navigate">
         <use xlink:href="@/assets/images/sprites.svg#logo"></use>

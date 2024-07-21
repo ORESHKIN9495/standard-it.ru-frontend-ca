@@ -18,10 +18,4 @@ interface Form {
   uri: string
 }
 
-interface Error {
-  name: string
-  email: string
-  phone: string
-}
-
-export type { Error, Form, Settings }
+export type { Form, Settings }
