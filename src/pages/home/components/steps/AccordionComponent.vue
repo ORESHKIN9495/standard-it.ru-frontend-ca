@@ -62,7 +62,7 @@ article {
     height: 520px;
 
     li {
-      color: white;
+      color: rgb(var(--color-light));
       overflow: hidden;
       padding: 40px;
       transition: all 0.3s ease-in-out;

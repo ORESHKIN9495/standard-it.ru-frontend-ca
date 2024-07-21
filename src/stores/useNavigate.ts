@@ -5,59 +5,6 @@ export const useNavigate = defineStore('useNavigate', () => {
   const aboutState = ref(false)
   const menuState = ref(false)
 
-  const array = ref([
-    { name: 'Оборудование', route: 'equipments' },
-    { name: 'Каталог услуг', route: 'services' },
-    { name: 'Проекты', route: 'projects' },
-    {
-      name: 'О компании',
-      list: [
-        {
-          name: 'Контакты',
-          route: 'contacts'
-        },
-        {
-          name: 'Новости',
-          route: 'posts'
-        },
-        {
-          name: 'Доска знаний',
-          route: 'knowledge'
-        },
-        {
-          name: 'Нормативная документация',
-          route: 'regulatory-documentation'
-        },
-        {
-          name: 'Наши клиенты',
-          route: 'clients'
-        },
-        {
-          name: 'Карта партнера',
-          route: 'card-partner'
-        },
-        {
-          name: 'Часто задаваемые вопросы',
-          route: 'questions'
-        },
-        {
-          name: 'Сертификаты',
-          route: 'certificates'
-        },
-        {
-          name: 'Вакансии',
-          route: 'vacancies'
-        },
-        {
-          name: 'ПО',
-          route: 'software'
-        }
-      ]
-    },
-    { name: 'Решения', route: 'solutions' },
-    { name: 'Контакты', route: 'contacts' }
-  ])
-
   const aboutList = ref([
     {
       name: 'Контакты',
@@ -101,5 +48,5 @@ export const useNavigate = defineStore('useNavigate', () => {
     }
   ])
 
-  return { array, aboutState, menuState, aboutList }
+  return { aboutState, menuState, aboutList }
 })

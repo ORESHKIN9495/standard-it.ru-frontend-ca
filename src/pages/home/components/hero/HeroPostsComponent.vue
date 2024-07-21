@@ -59,18 +59,14 @@ section {
     }
 
     svg {
+      color: rgb(var(--color-light));
       inset: auto 20px 20px;
-      opacity: 0;
       position: absolute;
     }
 
     &:hover {
       background-color: rgb(var(--color-theme));
-      color: #ffffff;
-
-      svg {
-        opacity: 1;
-      }
+      color: rgb(var(--color-light));
     }
   }
 }

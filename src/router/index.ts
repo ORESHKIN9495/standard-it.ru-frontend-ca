@@ -15,6 +15,8 @@ router.beforeEach(async (to, from, next) => {
   navigate.aboutState = false
   navigate.menuState = false
 
+  window.scrollTo(0, 0)
+
   changeStateTrue()
   next()
 })

@@ -9,6 +9,15 @@ export const useMessages = defineStore('messages', () => {
   const messagesStatus = ref()
   const subscribeStatus = ref()
 
+  const data = ref({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    content: '',
+    uri: ''
+  })
+
   const postMessage = async (data: Form) => {
     await axios
       .post('/messages', data)
@@ -18,7 +27,7 @@ export const useMessages = defineStore('messages', () => {
       })
   }
 
-  const postSubscribe = async (data: string) => {
+  const postSubscribe = async (data: Form) => {
     await axios
       .post('/subscribes', data)
       .then((response) => (subscribeStatus.value = response))
@@ -27,5 +36,5 @@ export const useMessages = defineStore('messages', () => {
       })
   }
 
-  return { state, messagesStatus, subscribeStatus, postMessage, postSubscribe, title }
+  return { state, messagesStatus, subscribeStatus, postMessage, postSubscribe, title, data }
 })

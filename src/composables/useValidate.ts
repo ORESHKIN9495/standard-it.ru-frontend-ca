@@ -1,46 +1,56 @@
-import { ref } from 'vue'
+type Rule<T = any> = (value: T) => boolean
 
-import type { Error, Form } from '@/types'
+interface FieldRule<T = any> {
+  fieldName: string
+  rule: Rule<T>
+  errorMessage: string
+}
 
-const errors = ref<Error>({
-  name: '',
-  email: '',
-  phone: ''
-})
+type ErrorRecord = Record<string, string[]>
 
-const mailingErrors = ref({
-  email: ''
-})
+class Protector {
+  private fields: Record<string, FieldRule[]> = {}
 
-// eslint-disable-next-line
-const mailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  constructor(...fieldRules: FieldRule[]) {
+    fieldRules.forEach(({ fieldName, rule, errorMessage }) => {
+      this.fields[fieldName] = this.fields[fieldName] || []
+      this.fields[fieldName].push({ rule, errorMessage, fieldName })
+    })
+  }
 
-const validateEmail = (email: string) => {
-  if (email.length > 6 && mailRegex.test(email)) {
-    mailingErrors.value.email = ''
-  } else {
-    mailingErrors.value.email = 'Введите корректный адрес эл.почты'
+  private getValueByPath<T>(data: Record<string, any>, path: string): T | undefined {
+    const pathParts = path.replace(/\[(\d+)]/g, '.$1').split('.')
+    return pathParts.reduce((acc, part) => acc?.[part], data) as T | undefined
+  }
+
+  public validate(data: any): ErrorRecord {
+    return Object.entries(this.fields).reduce((errors, [fieldName, rules]) => {
+      const fieldValue = this.getValueByPath(data, fieldName)
+      const fieldErrors = rules
+        .filter(({ rule }) => !rule(fieldValue))
+        .map(({ errorMessage }) => errorMessage)
+
+      if (fieldErrors.length) {
+        errors[fieldName] = fieldErrors
+      }
+
+      return errors
+    }, {} as ErrorRecord)
   }
 }
 
-const validate = (data: Form) => {
-  if (data.name.length < 2) {
-    errors.value.name = 'Введите корректное имя'
-  } else {
-    errors.value.name = ''
-  }
-
-  if (data.email.length > 6 && mailRegex.test(data.email)) {
-    errors.value.email = ''
-  } else {
-    errors.value.email = 'Введите корректный адрес эл.почты'
-  }
-
-  if (data.phone.length < 11) {
-    errors.value.phone = 'Введите корректный номер телефона'
-  } else {
-    errors.value.phone = ''
-  }
+const isEmail = (value: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(value)
 }
 
-export { errors, mailingErrors, validate, validateEmail }
+const minLength = (value: string, min: number): boolean => {
+  return value.length >= min
+}
+
+const isPhone = (value: string): boolean => {
+  const phoneRegex = /^\+7\d{10,11}$/
+  return phoneRegex.test(value)
+}
+
+export { Protector, isEmail, isPhone, minLength }

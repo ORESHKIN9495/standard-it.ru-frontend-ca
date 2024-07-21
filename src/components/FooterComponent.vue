@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SubscribeComponent from '@/components/SubscribeComponent.vue'
+import SubscribeComponent from '@/components/messages/SubscribeComponent.vue'
 import { useProjects } from '@/pages/projects/store'
 import { useServices } from '@/pages/services/store'
 import { useSolutions } from '@/pages/solutions/store'
@@ -15,7 +15,7 @@ solutions.find()
 </script>
 
 <template>
-  <footer id="footer">
+  <footer>
     <nav>
       <RouterLink to="/" custom v-slot="{ navigate }">
         <svg width="152" height="48" v-on:click="navigate">
@@ -27,25 +27,37 @@ solutions.find()
     <nav>
       <h4>Каталог услуг</h4>
 
-      <a v-for="el of services.list.slice(0, 5).filter((el) => el.status === true)" :key="el.id">
-        {{ el.name }}
-      </a>
+      <RouterLink
+        v-for="el of services.list.slice(0, 5).filter((el) => el.status)"
+        :key="el.id"
+        :to="{ name: 'service', params: { id: el.id } }"
+      >
+        {{ el.name }}</RouterLink
+      >
     </nav>
 
     <nav>
       <h4>Проекты</h4>
 
-      <a v-for="el of project.list.slice(0, 5).filter((el) => el.status === true)" :key="el.id">
-        {{ el.name }}
-      </a>
+      <RouterLink
+        v-for="el of project.list.slice(0, 5).filter((el) => el.status)"
+        :key="el.id"
+        :to="{ name: 'project', params: { id: el.id } }"
+      >
+        {{ el.name }}</RouterLink
+      >
     </nav>
 
     <nav>
       <h4>Решения</h4>
 
-      <a v-for="el of solutions.list.slice(0, 5).filter((el) => el.status === true)" :key="el.id">
-        {{ el.name }}
-      </a>
+      <RouterLink
+        v-for="el of solutions.list.slice(0, 5).filter((el) => el.status)"
+        :key="el.id"
+        :to="{ name: 'solution', params: { id: el.id } }"
+      >
+        {{ el.name }}</RouterLink
+      >
     </nav>
 
     <SubscribeComponent />
@@ -54,13 +66,13 @@ solutions.find()
 
 <style scoped lang="scss">
 footer {
+  color: rgb(var(--color-light));
   display: grid;
-  grid-template: auto / repeat(4, 1fr);
   gap: var(--theme-gap);
-  color: #ffffff;
+  grid-template: auto / repeat(4, 1fr);
 
   nav {
-    background-color: rgb(75, 73, 75);
+    background-color: rgb(var(--color-text-dark));
     padding: clamp(20px, 2vw, 40px);
 
     &:first-of-type {
@@ -79,6 +91,7 @@ footer {
 
     a {
       display: block;
+      margin: 0 0 5px;
       opacity: 0.8;
 
       &:hover {

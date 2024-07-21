@@ -34,7 +34,7 @@ const store = useNavigate()
 <style scoped lang="scss">
 nav {
   background-color: rgb(var(--color-theme));
-  color: #ffffff;
+  color: rgb(var(--color-light));
   display: grid;
   gap: 20px;
   inset: 86px 0 auto;
@@ -50,10 +50,10 @@ nav {
 
   ul {
     li {
-      cursor: pointer;
       width: fit-content;
 
       &:not(:first-of-type) {
+        cursor: pointer;
         list-style-type: '- ';
         margin: 10px 0 0 20px;
       }

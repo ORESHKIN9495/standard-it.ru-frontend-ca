@@ -2,10 +2,11 @@ export const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/pages/home/views/IndexView.vue'),
     meta: {
       name: 'Главная'
-    }
+    },
+
+    component: () => import('@/pages/home/views/IndexView.vue')
   },
   {
     path: '/card-partner',
@@ -13,6 +14,7 @@ export const routes = [
     meta: {
       name: 'Карта партнера'
     },
+
     component: () => import('@/pages/card-partner/views/indexView.vue')
   },
   {
@@ -21,6 +23,7 @@ export const routes = [
     meta: {
       name: 'Контакты'
     },
+
     component: () => import('@/pages/contacts/views/indexView.vue')
   },
   {
@@ -29,6 +32,7 @@ export const routes = [
     meta: {
       name: 'Часто задаваемые вопросы'
     },
+
     component: () => import('@/pages/questions/views/indexView.vue')
   },
   {
@@ -37,11 +41,16 @@ export const routes = [
     meta: {
       name: 'Каталог услуг'
     },
+
     component: () => import('@/pages/services/views/indexView.vue')
   },
   {
     path: '/services/:id',
     name: 'service',
+    meta: {
+      name: 'Каталог услуг'
+    },
+
     component: () => import('@/pages/services/views/indexPage.vue')
   },
   {
@@ -50,11 +59,16 @@ export const routes = [
     meta: {
       name: 'Решения'
     },
+
     component: () => import('@/pages/solutions/views/indexView.vue')
   },
   {
     path: '/solutions/:id',
     name: 'solution',
+    meta: {
+      name: 'Решения'
+    },
+
     component: () => import('@/pages/solutions/views/indexPage.vue')
   },
   {
@@ -63,11 +77,16 @@ export const routes = [
     meta: {
       name: 'Проекты'
     },
+
     component: () => import('@/pages/projects/views/indexView.vue')
   },
   {
     path: '/projects/:id',
     name: 'project',
+    meta: {
+      name: 'Проекты'
+    },
+
     component: () => import('@/pages/projects/views/indexPage.vue')
   },
   {
@@ -76,6 +95,7 @@ export const routes = [
     meta: {
       name: 'Нормативная документация'
     },
+
     component: () => import('@/pages/regulatory-documentation/views/indexView.vue')
   },
   {
@@ -84,11 +104,15 @@ export const routes = [
     meta: {
       name: 'Новости'
     },
+
     component: () => import('@/pages/post/views/indexView.vue')
   },
   {
     path: '/posts/:id',
     name: 'post',
+    meta: {
+      name: 'Новости'
+    },
 
     component: () => import('@/pages/post/views/indexPage.vue')
   },
@@ -98,11 +122,15 @@ export const routes = [
     meta: {
       name: 'Доска знаний'
     },
+
     component: () => import('@/pages/knowledge/views/indexView.vue')
   },
   {
     path: '/knowledge/:id',
     name: 'knowledge-page',
+    meta: {
+      name: 'Доска знаний'
+    },
 
     component: () => import('@/pages/knowledge/views/indexPage.vue')
   },
@@ -112,11 +140,15 @@ export const routes = [
     meta: {
       name: 'Вакансии'
     },
+
     component: () => import('@/pages/vacancies/views/indexView.vue')
   },
   {
     path: '/vacancies/:id',
     name: 'vacancy',
+    meta: {
+      name: 'Вакансии'
+    },
 
     component: () => import('@/pages/vacancies/views/indexPage.vue')
   },
@@ -126,6 +158,7 @@ export const routes = [
     meta: {
       name: 'Сертификаты'
     },
+
     component: () => import('@/pages/certificates/views/indexView.vue')
   },
   {
@@ -134,11 +167,15 @@ export const routes = [
     meta: {
       name: 'Оборудование'
     },
+
     component: () => import('@/pages/equipments/views/indexView.vue')
   },
   {
     path: '/equipments/:id',
     name: 'equipment',
+    meta: {
+      name: 'Оборудование'
+    },
 
     component: () => import('@/pages/equipments/views/indexPage.vue')
   },
@@ -148,11 +185,16 @@ export const routes = [
     meta: {
       name: 'Производители'
     },
+
     component: () => import('@/pages/manufacturers/views/indexView.vue')
   },
   {
     path: '/equipments/manufacturer/:id',
     name: 'manufacturer',
+    meta: {
+      name: 'Производители'
+    },
+
     component: () => import('@/pages/manufacturers/views/indexPage.vue')
   },
   {
@@ -161,6 +203,7 @@ export const routes = [
     meta: {
       name: 'ПО'
     },
+
     component: () => import('@/pages/software/views/indexView.vue')
   },
   {
@@ -175,6 +218,9 @@ export const routes = [
   {
     path: '/software/:id',
     name: 'software-page',
+    meta: {
+      name: 'ПО'
+    },
 
     component: () => import('@/pages/software/views/indexPage.vue')
   },
@@ -184,6 +230,7 @@ export const routes = [
     meta: {
       name: 'Наши клиенты'
     },
+
     component: () => import('@/pages/clients/views/indexView.vue')
   }
 ]

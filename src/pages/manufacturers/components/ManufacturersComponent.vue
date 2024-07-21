@@ -66,6 +66,11 @@ section {
 @media only screen and (max-width: 1500px) {
   section {
     grid-template: auto / repeat(2, 1fr);
+
+    aside {
+      grid-template: auto / 1fr;
+      grid-column: 1 / -1;
+    }
   }
 }
 

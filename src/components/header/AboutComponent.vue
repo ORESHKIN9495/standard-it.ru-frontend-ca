@@ -52,13 +52,15 @@ section {
     padding: clamp(20px, 4vw, 40px);
 
     nav {
+      display: grid;
+      height: fit-content;
+
       p {
         max-width: 600px;
       }
 
       &:nth-of-type(2) {
-        display: grid;
-        gap: 10px;
+        gap: 5px;
 
         a {
           white-space: nowrap;

@@ -20,15 +20,15 @@ button {
 
   &:hover {
     background-color: rgb(var(--color-theme));
-    color: #ffffff;
+    color: rgb(var(--color-light));
   }
 
   &.inverse {
-    border-color: #ffffff;
-    color: #ffffff;
+    border-color: rgb(var(--color-light));
+    color: rgb(var(--color-light));
 
     &:hover {
-      background-color: #ffffff;
+      background-color: rgb(var(--color-light));
       color: rgb(var(--color-theme));
     }
   }

@@ -5,7 +5,7 @@ import LoaderComponent from '@/components/LoaderComponent.vue'
 import { useLoader } from '@/stores/useLoader'
 import { watchEffect } from 'vue'
 import { RouterView } from 'vue-router'
-import MessagesComponent from './components/MessagesComponent.vue'
+import MessagesComponent from './components/messages/MessagesComponent.vue'
 import { useState } from './stores/useState'
 
 const isLoading = useLoader()

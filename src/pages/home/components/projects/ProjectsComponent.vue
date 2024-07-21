@@ -44,7 +44,7 @@ section {
   article {
     &:first-of-type {
       background-color: rgb(var(--color-theme));
-      color: #fff;
+      color: rgb(var(--color-light));
       padding: clamp(20px, 4vw, 40px);
 
       button {

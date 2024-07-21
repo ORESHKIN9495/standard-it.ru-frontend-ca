@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import FormComponent from '@/components/FormComponent.vue'
 import { useMessages } from '@/stores/useMessages'
+import FormComponent from './FormComponent.vue'
 
 const store = useMessages()
 </script>
