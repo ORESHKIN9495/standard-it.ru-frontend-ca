@@ -7,7 +7,6 @@ import { usePosts } from '../store'
 import CardComponent from './CardComponent.vue'
 
 const store = usePosts()
-store.find()
 
 const preloaderState = ref(false)
 const direction = ref('down')
@@ -36,6 +35,8 @@ const scrolled = () => {
     ? window.scrollTo({ top: 0, behavior: 'smooth' })
     : window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })
 }
+
+store.find()
 </script>
 
 <template>
@@ -44,9 +45,9 @@ const scrolled = () => {
 
     <RouterLink
       v-for="el of sortBy(store.filteredData, 'published')
-        .reverse()
         .filter((el) => el.status)
-        .slice(0, feedCounter)"
+        .slice(0, feedCounter)
+        .reverse()"
       :key="el.name"
       :to="{
         name: 'post',

@@ -9,8 +9,9 @@ const store = useClients()
 const groupedItems = computed(() =>
   store.list
     .filter((el) => el.status)
-    .reduce((accumulator: any, el) => {
+    .reduce((accumulator: Record<string, any>, el) => {
       const published = fDate(el.published, 'year')
+
       if (!accumulator[published as string]) accumulator[published as string] = []
 
       accumulator[published as string].push(el)

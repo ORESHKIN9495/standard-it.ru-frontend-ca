@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { sortBy } from 'lodash'
+
 import { ref } from 'vue'
 import { useСertificates } from '../store'
 
@@ -14,7 +16,9 @@ const show = ref(false)
 <template>
   <section>
     <picture
-      v-for="el of store.filteredData"
+      v-for="el of sortBy(store.filteredData, 'published')
+        .filter((el) => el.status)
+        .reverse()"
       :key="el.id"
       v-on:click="(selected = el), (show = true)"
     >
