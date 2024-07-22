@@ -4,7 +4,7 @@ import { useServices } from '../store'
 
 const store = useServices()
 
-export const useFilter = defineStore('servicesFilter', () => {
+export const useFilter = defineStore('services-filter', () => {
   const filteredParams = ref({
     collections: 'Выберите категорию'
   })

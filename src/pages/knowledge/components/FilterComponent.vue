@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SelectComponent from '@/components/SelectComponent.vue'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useKnowledge } from '../store'
 import { useFilter } from '../store/useFilter'
 
@@ -8,6 +8,8 @@ const filter = useFilter()
 const store = useKnowledge()
 
 const collections = computed(() => store.listCollections.filter((el) => el.status))
+
+onMounted(() => filter.reset())
 
 store.findCollections()
 </script>

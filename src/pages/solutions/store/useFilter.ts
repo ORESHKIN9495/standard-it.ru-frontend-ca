@@ -4,7 +4,7 @@ import { useSolutions } from '../store'
 
 const store = useSolutions()
 
-export const useFilter = defineStore('solutionsFilter', () => {
+export const useFilter = defineStore('solutions-filter', () => {
   const filteredParams = ref({
     collections: 'Выберите категорию'
   })

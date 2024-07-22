@@ -2,7 +2,7 @@
 import SelectComponent from '@/components/SelectComponent.vue'
 import { useServices } from '@/pages/services/store'
 import { uniqBy } from 'lodash'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useProjects } from '../store'
 import { useFilter } from '../store/useFilter'
 
@@ -26,6 +26,8 @@ const industryCollections = computed(() =>
       .some((e) => e.name === el.name)
   )
 )
+
+onMounted(() => filter.reset())
 
 store.findCollections()
 </script>

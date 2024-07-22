@@ -4,7 +4,7 @@ import { useProjects } from '../store'
 
 const store = useProjects()
 
-export const useFilter = defineStore('projectsFilter', () => {
+export const useFilter = defineStore('projects-filter', () => {
   const filteredParams = ref({
     services: 'Выберите услугу',
     industry: 'Выберите отрасль'

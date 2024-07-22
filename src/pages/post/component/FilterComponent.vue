@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SelectComponent from '@/components/SelectComponent.vue'
 import { useManufacturers } from '@/pages/manufacturers/store'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { usePosts } from '../store'
 import { useFilter } from '../store/useFilter'
 
@@ -17,6 +17,8 @@ const getManufacturers = computed(() =>
       .some((e) => e.name === el.name)
   )
 )
+
+onMounted(() => filter.reset())
 
 manufacturers.find()
 </script>

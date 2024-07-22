@@ -4,7 +4,7 @@ import { useСertificates } from '../store'
 
 const store = useСertificates()
 
-export const useFilter = defineStore('servicesFilter', () => {
+export const useFilter = defineStore('certificates-filter', () => {
   const filteredParams = ref({
     collections: 'Выберите категорию'
   })

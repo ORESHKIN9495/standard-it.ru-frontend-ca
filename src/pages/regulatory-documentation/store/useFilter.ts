@@ -4,7 +4,7 @@ import { useRegulatoryDocumentation } from '../store'
 
 const store = useRegulatoryDocumentation()
 
-export const useFilter = defineStore('solutionsFilter', () => {
+export const useFilter = defineStore('regulatory-documentation-filter', () => {
   const filteredParams = ref({
     collections: 'Выберите категорию'
   })

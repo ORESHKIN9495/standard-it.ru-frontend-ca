@@ -4,7 +4,7 @@ import { useKnowledge } from '../store'
 
 const store = useKnowledge()
 
-export const useFilter = defineStore('knowledgeFilter', () => {
+export const useFilter = defineStore('knowledge-filter', () => {
   const filteredParams = ref({
     collections: 'Выберите категорию'
   })

@@ -5,7 +5,7 @@ import { usePosts } from '../store'
 
 const store = usePosts()
 
-export const useFilter = defineStore('postsFilter', () => {
+export const useFilter = defineStore('posts-filter', () => {
   const date = ref([
     { id: 1, month: 'январь' },
     { id: 2, month: 'февраль' },
