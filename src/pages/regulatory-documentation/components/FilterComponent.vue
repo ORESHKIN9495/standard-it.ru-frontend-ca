@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import SelectComponent from '@/components/SelectComponent.vue'
 import { computed } from 'vue'
 import { useRegulatoryDocumentation } from '../store'
 import { useFilter } from '../store/useFilter'
-import DropDownComponent from './DropDownComponent.vue'
 
 const filter = useFilter()
 const store = useRegulatoryDocumentation()
@@ -34,8 +34,9 @@ store.findCollections()
     <div>
       <span v-on:click="filter.reset()">Все</span>
 
-      <DropDownComponent
+      <SelectComponent
         :data="collections.map((el) => el.name).sort((a, b) => a.localeCompare(b))"
+        :filter="filter"
         type="collections"
       />
     </div>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import SelectComponent from '@/components/SelectComponent.vue'
 import { computed } from 'vue'
 import { useСertificates } from '../store'
 import { useFilter } from '../store/useFilter'
-import DropDownComponent from './DropDownComponent.vue'
 
 const filter = useFilter()
 const store = useСertificates()
@@ -25,7 +25,7 @@ store.findCollections()
     <div>
       <span v-on:click="filter.reset()">Все</span>
 
-      <DropDownComponent :data="getCollections" type="collections" />
+      <SelectComponent :data="getCollections" :filter="filter" type="collections" />
     </div>
   </aside>
 </template>

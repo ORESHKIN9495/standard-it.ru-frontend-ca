@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useFilter } from '../store/useFilter'
-
-const filter = useFilter()
 
 const props = defineProps<{
   data: string[]
-  type: 'manufacturer' | 'year' | 'month'
+  type: 'collections' | 'manufacturer' | 'year' | 'month' | 'services' | 'industry'
+  filter: any
 }>()
 
 const selected = ref(false)
@@ -16,9 +14,9 @@ const selected = ref(false)
   <article v-on:click="selected = !selected">
     <p
       v-html="
-        filter.filteredParams[props.type].length > 22
-          ? filter.filteredParams[props.type].slice(0, 22) + '...'
-          : filter.filteredParams[props.type]
+        props.filter.filteredParams[props.type].length > 22
+          ? props.filter.filteredParams[props.type].slice(0, 22) + '...'
+          : props.filter.filteredParams[props.type]
       "
     />
 
@@ -30,7 +28,7 @@ const selected = ref(false)
       <li
         v-for="el of props.data"
         :key="el"
-        v-on:click="filter.prepare(el, type)"
+        v-on:click="props.filter.prepare(el, type)"
         v-outside="() => (selected = false)"
       >
         {{ el }}

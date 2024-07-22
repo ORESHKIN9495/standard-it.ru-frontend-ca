@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import SelectComponent from '@/components/SelectComponent.vue'
 import { useManufacturers } from '@/pages/manufacturers/store'
 import { computed } from 'vue'
-import DropDownComponent from '../component/DropDownComponent.vue'
 import { usePosts } from '../store'
 import { useFilter } from '../store/useFilter'
 
@@ -36,12 +36,11 @@ manufacturers.find()
     <div>
       <span v-on:click="filter.reset()">Все</span>
 
-      <DropDownComponent :data="filter.date.map((el) => el.month)" type="month" />
-
-      <DropDownComponent :data="filter.getYars" type="year" />
-
-      <DropDownComponent
+      <SelectComponent :data="filter.date.map((el) => el.month)" :filter="filter" type="month" />
+      <SelectComponent :data="filter.getYars" :filter="filter" type="year" />
+      <SelectComponent
         :data="getManufacturers.map((el) => el.name).sort((a, b) => a.localeCompare(b))"
+        :filter="filter"
         type="manufacturer"
       />
 

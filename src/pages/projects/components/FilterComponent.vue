@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import SelectComponent from '@/components/SelectComponent.vue'
 import { useServices } from '@/pages/services/store'
 import { uniqBy } from 'lodash'
 import { computed } from 'vue'
 import { useProjects } from '../store'
 import { useFilter } from '../store/useFilter'
-import DropDownComponent from './DropDownComponent.vue'
 
 const filter = useFilter()
 const store = useProjects()
@@ -44,17 +44,19 @@ store.findCollections()
     <div>
       <span v-on:click="filter.reset()">Все</span>
 
-      <DropDownComponent
+      <SelectComponent
         :data="
           uniqBy(servicesCollections, 'name')
             .map((el) => el.name)
             .sort((a, b) => a.localeCompare(b))
         "
+        :filter="filter"
         type="services"
       />
 
-      <DropDownComponent
+      <SelectComponent
         :data="industryCollections.map((el) => el.name).sort((a, b) => a.localeCompare(b))"
+        :filter="filter"
         type="industry"
       />
     </div>
