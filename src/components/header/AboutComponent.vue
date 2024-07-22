@@ -59,15 +59,17 @@ section {
         max-width: 600px;
       }
 
+      a {
+        &:hover {
+          color: rgba(var(--color-theme), 0.8);
+        }
+      }
+
       &:nth-of-type(2) {
         gap: 5px;
 
         a {
           white-space: nowrap;
-
-          &:hover {
-            color: rgba(var(--color-theme), 0.8);
-          }
 
           &::before {
             content: '— ';

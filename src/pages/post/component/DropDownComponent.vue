@@ -55,7 +55,7 @@ article {
 
   ul {
     background-color: #3969f6;
-    inset: 55px 0 auto;
+    inset: 60px 0 auto;
     max-height: 400px;
     overflow-y: auto;
     position: absolute;

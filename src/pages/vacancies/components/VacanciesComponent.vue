@@ -13,7 +13,7 @@ store.find()
     <FilterComponent></FilterComponent>
 
     <RouterLink
-      v-for="el of store.filteredData.filter((e) => e.status)"
+      v-for="el of store.list.filter((e) => e.status)"
       :key="el.id"
       :to="{ name: 'vacancy', params: { id: el.id } }"
       custom
