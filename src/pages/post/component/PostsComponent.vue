@@ -27,7 +27,7 @@ const prepare = (count: number) => {
   setTimeout(() => {
     feedCounter.value += count
     preloaderState.value = false
-  }, 1000)
+  }, 500)
 }
 
 const scrolled = () => {
@@ -46,8 +46,8 @@ store.find()
     <RouterLink
       v-for="el of sortBy(store.filteredData, 'published')
         .filter((el) => el.status)
-        .slice(0, feedCounter)
-        .reverse()"
+        .reverse()
+        .slice(0, feedCounter)"
       :key="el.name"
       :to="{
         name: 'post',
@@ -74,7 +74,6 @@ store.find()
       height="40"
       fill="rgb(var(--color-theme))"
       viewBox="0 0 16 16"
-      class="arrow-top"
       v-on:click="scrolled()"
       :style="{ transform: `rotate(${direction === 'up' ? 0 : 180}deg)` }"
     >
@@ -93,11 +92,6 @@ section {
   grid-template: auto / repeat(5, 1fr);
   gap: 40px;
 
-  h2 {
-    grid-column: 1 / -1;
-    margin: 40px auto;
-  }
-
   button {
     color: rgb(var(--color-theme));
     margin: auto auto 40px;
@@ -107,7 +101,7 @@ section {
     }
 
     &.pendingButton {
-      animation: preload 1s ease-in-out forwards;
+      animation: preload 0.3s ease-in-out forwards;
     }
 
     @keyframes preload {
@@ -125,13 +119,11 @@ section {
     }
 
     svg {
-      &.arrow-top {
-        cursor: pointer;
-        display: block;
-        inset: 50% 40px 50% auto;
-        position: fixed;
-        transition: 0.3s ease-in-out;
-      }
+      cursor: pointer;
+      display: block;
+      inset: 50% 40px 50% auto;
+      position: fixed;
+      transition: 0.3s ease-in-out;
     }
   }
 }
@@ -148,9 +140,7 @@ section {
 
     &.feed {
       svg {
-        &.arrow-top {
-          display: none;
-        }
+        display: none;
       }
     }
   }
