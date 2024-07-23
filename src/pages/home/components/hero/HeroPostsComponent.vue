@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconChevron from '@/assets/images/icon/IconChevron.vue'
 import { usePosts } from '@/pages/post/store'
 import { sortBy } from 'lodash'
 
@@ -26,18 +27,7 @@ store.find()
 
         <p>{{ el.description.slice(0, 185) }}...</p>
 
-        <svg
-          width="10"
-          height="16"
-          viewBox="0 0 10 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1.227.852a.562.562 0 0 1 .796 0l6.75 6.75a.563.563 0 0 1 0 .796l-6.75 6.75a.563.563 0 0 1-.796-.796L7.58 8 1.227 1.648a.562.562 0 0 1 0-.796Z"
-            stroke="currentColor"
-          />
-        </svg>
+        <IconChevron direction />
       </article>
     </RouterLink>
   </section>

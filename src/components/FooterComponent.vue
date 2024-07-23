@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconLogotype from '@/assets/images/icon/IconLogotype.vue'
 import SubscribeComponent from '@/components/messages/SubscribeComponent.vue'
 import { useProjects } from '@/pages/projects/store'
 import { useServices } from '@/pages/services/store'
@@ -17,10 +18,8 @@ solutions.find()
 <template>
   <footer>
     <nav>
-      <RouterLink to="/" custom v-slot="{ navigate }">
-        <svg width="152" height="48" v-on:click="navigate">
-          <use xlink:href="@/assets/images/sprites.svg#logo"></use>
-        </svg>
+      <RouterLink :to="{ name: 'home' }" custom v-slot="{ navigate }">
+        <IconLogotype v-on:click="navigate" />
       </RouterLink>
     </nav>
 
@@ -78,10 +77,6 @@ footer {
     &:first-of-type {
       grid-column: 1 / -1;
       padding: 20px clamp(20px, 2vw, 40px);
-
-      svg {
-        cursor: pointer;
-      }
     }
 
     h4 {

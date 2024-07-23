@@ -27,8 +27,8 @@ const scrollToElement = () => {
 svg {
   color: rgb(var(--color-theme));
   cursor: pointer;
-  opacity: 0.6;
   margin: 20px 0 0;
+  opacity: 0.6;
 
   &:hover {
     opacity: 1;

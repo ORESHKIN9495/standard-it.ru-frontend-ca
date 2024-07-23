@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconChevron from '@/assets/images/icon/IconChevron.vue'
 import { ref } from 'vue'
 
 const props = defineProps<{
@@ -20,9 +21,7 @@ const selected = ref(false)
       "
     />
 
-    <svg width="35" height="35" fill="none" :class="{ selected: selected }">
-      <use xlink:href="@/assets/images/sprites.svg#chevron" />
-    </svg>
+    <IconChevron :class="{ selected: selected }" />
 
     <ul v-if="selected">
       <li

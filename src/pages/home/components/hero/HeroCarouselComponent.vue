@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import IconScroll from '@/assets/images/icon/IconScroll.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { useServices } from '@/pages/services/store'
 import { useSolutions } from '@/pages/solutions/store'
 import { computed, onMounted, ref } from 'vue'
-import ScrollingComponent from './ScrollingComponent.vue'
 
 const services = useServices()
 const solutions = useSolutions()
@@ -49,7 +49,7 @@ onMounted(() => {
       </article>
     </Transition>
 
-    <ScrollingComponent />
+    <IconScroll />
   </section>
 </template>
 

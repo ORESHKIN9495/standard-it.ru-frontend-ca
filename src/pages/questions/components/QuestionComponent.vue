@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconPlus from '@/assets/images/icon/IconPlus.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { useMessages } from '@/stores/useMessages'
 import { ref } from 'vue'
@@ -24,9 +25,7 @@ store.find()
         <li v-on:click="index = idx">
           {{ el.name }}
 
-          <svg :class="{ rotate: index === idx }" v-on:click="index = idx" width="10" height="10">
-            <use xlink:href="@/assets/images/sprites.svg#plus"></use>
-          </svg>
+          <IconPlus :class="{ rotate: index === idx }" v-on:click="index = idx" />
         </li>
 
         <li v-if="index === idx" v-html="el.content" v-outside="() => (index = -1)"></li>

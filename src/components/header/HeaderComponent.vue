@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import IconLogotype from '@/assets/images/icon/IconLogotype.vue'
+import IconMenu from '@/assets/images/icon/IconMenu.vue'
+import IconPlus from '@/assets/images/icon/IconPlus.vue'
 import { useNavigate } from '@/stores/useNavigate'
 import { RouterLink } from 'vue-router'
 import AboutComponent from './AboutComponent.vue'
@@ -10,9 +13,7 @@ const store = useNavigate()
 <template>
   <header>
     <RouterLink :to="{ name: 'home' }" custom v-slot="{ navigate }">
-      <svg width="152" height="48" v-on:click="navigate">
-        <use xlink:href="@/assets/images/sprites.svg#logo"></use>
-      </svg>
+      <IconLogotype v-on:click="navigate" />
     </RouterLink>
 
     <nav>
@@ -23,17 +24,13 @@ const store = useNavigate()
       <a v-on:click="store.aboutState = !store.aboutState">
         О компании
 
-        <svg width="10" height="10" :class="{ transition: store.aboutState }">
-          <use xlink:href="@/assets/images/sprites.svg#plus"></use>
-        </svg>
+        <IconPlus :class="{ transition: store.aboutState }" />
       </a>
 
       <RouterLink :to="{ name: 'solutions' }">Решения</RouterLink>
       <RouterLink :to="{ name: 'contacts' }">Контакты</RouterLink>
 
-      <svg width="25" height="25" v-on:click="store.menuState = !store.menuState">
-        <use xlink:href="@/assets/images/sprites.svg#menu"></use>
-      </svg>
+      <IconMenu v-on:click="store.menuState = !store.menuState" />
     </nav>
 
     <nav>
@@ -56,11 +53,6 @@ header {
   top: 0;
   z-index: 9;
 
-  svg {
-    cursor: pointer;
-    margin: auto;
-  }
-
   nav {
     display: flex;
     padding: 0 clamp(20px, 2vw, 40px);
@@ -75,8 +67,6 @@ header {
         margin: 0 40px 0 0;
 
         svg {
-          cursor: default;
-          display: inline;
           margin: 0 0 0 10px;
           transition: transform 0.3s ease-in-out;
 
@@ -95,10 +85,6 @@ header {
       white-space: nowrap;
     }
 
-    svg {
-      display: none;
-    }
-
     &:last-of-type {
       flex-direction: column;
       justify-content: center;
@@ -112,11 +98,6 @@ header {
           &:last-of-type {
             display: none;
           }
-        }
-
-        svg {
-          display: inline;
-          margin: 0 0 0 auto;
         }
       }
     }
