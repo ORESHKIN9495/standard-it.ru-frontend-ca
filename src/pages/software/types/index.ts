@@ -1,4 +1,5 @@
 import type { Manufacturer } from '@/pages/manufacturers/types'
+import type { Collection } from '@/types'
 
 interface Software {
   id: number
@@ -7,15 +8,6 @@ interface Software {
   status: boolean
   collection: Collection[]
   manufacturers: Manufacturer[]
-  image: string
-}
-
-interface Collection {
-  id: number
-  name: string
-  description: string
-  status: boolean
-  related: []
   image: string
 }
 

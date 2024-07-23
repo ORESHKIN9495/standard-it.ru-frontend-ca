@@ -1,3 +1,5 @@
+import type { Collection } from '@/types'
+
 interface RegulatoryDocumentation {
   id: number
   name: string
@@ -6,11 +8,4 @@ interface RegulatoryDocumentation {
   collection: Collection[]
 }
 
-interface Collection {
-  id: number
-  name: string
-  description: string
-  status: boolean
-}
-
-export type { RegulatoryDocumentation }
+export type { Collection, RegulatoryDocumentation }

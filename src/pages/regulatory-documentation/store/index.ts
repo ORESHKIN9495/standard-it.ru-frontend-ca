@@ -1,12 +1,12 @@
 import { axios } from '@/commom/axios'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { RegulatoryDocumentation } from '../types'
+import type { Collection, RegulatoryDocumentation } from '../types'
 
 export const useRegulatoryDocumentation = defineStore('regulatory-documentation', () => {
   const list = ref<RegulatoryDocumentation[]>([])
   const filteredData = ref<RegulatoryDocumentation[]>([])
-  const listCollections = ref<RegulatoryDocumentation[]>([])
+  const listCollections = ref<Collection[]>([])
 
   const find = async () => {
     await axios

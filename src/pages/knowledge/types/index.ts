@@ -1,4 +1,5 @@
 import type { Manufacturer } from '@/pages/manufacturers/types'
+import type { Collection } from '@/types'
 
 interface Knowledge {
   id: number
@@ -13,13 +14,6 @@ interface Knowledge {
   published: string
   views: number
   collection: Collection[]
-}
-
-interface Collection {
-  id: number
-  name: string
-  description: string
-  status: boolean
 }
 
 export type { Knowledge }

@@ -18,4 +18,25 @@ interface Form {
   uri: string
 }
 
-export type { Form, Settings }
+interface Collection {
+  id: number
+  name: string
+  description: string
+  status: boolean
+  related: []
+  image: string
+}
+
+interface Cost {
+  id: number
+  amount: number
+  coef: {
+    id: number
+    amount: number
+  }
+  summary: number
+  created_at: string
+  updated_at: string
+}
+
+export type { Collection, Cost, Form, Settings }

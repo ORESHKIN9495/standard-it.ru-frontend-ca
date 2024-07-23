@@ -1,4 +1,5 @@
 import type { Service } from '@/pages/services/types'
+import type { Collection, Cost } from '@/types'
 
 interface Solution {
   id: number
@@ -13,25 +14,6 @@ interface Solution {
   services: Service[]
   collection: Collection[]
   cost: Cost[]
-}
-
-interface Collection {
-  id: number
-  name: string
-  description: string
-  status: boolean
-}
-
-interface Cost {
-  id: number
-  amount: number
-  coef: {
-    id: number
-    amount: number
-  }
-  summary: number
-  created_at: string
-  updated_at: string
 }
 
 export type { Collection, Solution }

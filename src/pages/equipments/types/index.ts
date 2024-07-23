@@ -1,4 +1,5 @@
 import type { Manufacturer } from '@/pages/manufacturers/types'
+import type { Collection } from '@/types'
 
 interface Equipment {
   id: number
@@ -7,14 +8,6 @@ interface Equipment {
   status: boolean
   collection: Collection[]
   manufacturers: Manufacturer[]
-}
-
-interface Collection {
-  id: number
-  name: string
-  description: string
-  status: boolean
-  image: string
 }
 
 export type { Collection, Equipment }

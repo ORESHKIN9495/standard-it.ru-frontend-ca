@@ -2,7 +2,7 @@
 import { useSteps } from '@/pages/home/store/useSteps'
 import { ref } from 'vue'
 
-const steps = useSteps()
+const store = useSteps()
 
 const index = ref(-1)
 const visible = ref(false)
@@ -28,7 +28,7 @@ setStep(0)
 
     <ul>
       <li
-        v-for="(el, idx) of steps.array"
+        v-for="(el, idx) of store.array"
         :key="el.id"
         :class="{ selected: index == idx }"
         :style="`background-color: #ffffff${idx * 10};`"

@@ -1,5 +1,6 @@
 import type { Equipment } from '@/pages/equipments/types'
 import type { Service } from '@/pages/services/types'
+import type { Collection } from '@/types'
 
 interface Project {
   id: number
@@ -12,13 +13,6 @@ interface Project {
   services: Service[]
   equipments: Equipment[]
   collection: Collection[]
-}
-
-interface Collection {
-  id: number
-  name: string
-  description: string
-  status: boolean
 }
 
 export type { Collection, Project }
