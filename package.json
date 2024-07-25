@@ -6,8 +6,8 @@
   "scripts": {
     "build-only": "vite build --mode production",
     "build": "run-p type-check \"build-only {@}\" --",
-    "deploy": "vite build --mode production && rsync --archive --compress --delete ./dist/* root@00.000.000.00:/var/www/example.ru/html/",
-    "dev": "vite --mode production",
+    "deploy": "vite build --mode production && rsync --archive --compress --delete ./dist/* root@31.129.109.193:/var/www/standard-it.ru/html/",
+    "dev": "vite --mode production --host",
     "format": "prettier --write src/",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "preview": "vite preview",

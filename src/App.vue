@@ -141,6 +141,10 @@ form {
 }
 
 .content {
+  p {
+    word-break: break-all;
+  }
+
   img {
     width: 100%;
     margin: 40px 0;
