@@ -26,6 +26,7 @@ article {
     overflow: hidden;
 
     img {
+      object-fit: contain;
       transition: 0.2s ease-in-out;
     }
   }
