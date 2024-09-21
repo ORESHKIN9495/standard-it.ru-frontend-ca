@@ -201,7 +201,7 @@ export const routes = [
     path: '/software',
     name: 'software',
     meta: {
-      name: 'ПО'
+      name: 'Программное обеспечение'
     },
 
     component: () => import('@/pages/software/views/indexView.vue')
@@ -210,7 +210,7 @@ export const routes = [
     path: '/software/collections/:id',
     name: 'software-collection',
     meta: {
-      name: 'Коллекция ПО'
+      name: 'Коллекция программного обеспечения'
     },
 
     component: () => import('@/pages/software/views/indexCollection.vue')
@@ -219,7 +219,7 @@ export const routes = [
     path: '/software/:id',
     name: 'software-page',
     meta: {
-      name: 'ПО'
+      name: 'Программное обеспечение'
     },
 
     component: () => import('@/pages/software/views/indexPage.vue')

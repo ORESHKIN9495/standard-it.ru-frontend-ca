@@ -17,7 +17,7 @@ store.find()
 
 <template>
   <main>
-    <CrumbsComponent crumb="Коллекция ПО" />
+    <CrumbsComponent crumb="Коллекция программного обеспечения" />
 
     <section>
       <aside>

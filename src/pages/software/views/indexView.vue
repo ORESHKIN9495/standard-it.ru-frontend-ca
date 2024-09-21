@@ -5,7 +5,7 @@ import SoftwareComponent from '../components/SoftwareComponent.vue'
 
 <template>
   <main>
-    <CrumbsComponent crumb="ПО" />
+    <CrumbsComponent crumb="Программное обеспечение" />
 
     <SoftwareComponent />
   </main>
