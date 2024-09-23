@@ -12,23 +12,20 @@ const collections = computed(() =>
   store.list.filter((el) => el.collection.some((e) => e.id === +route.params.id))
 )
 
+const collection = computed(() => store.listCollections.filter((el) => el.id === +route.params.id))
+
 store.find()
 </script>
 
 <template>
   <main>
-    <CrumbsComponent crumb="Коллекция программного обеспечения" />
+    <CrumbsComponent :crumb="collection[0]?.name" />
 
     <section>
       <aside>
-        <h1>{{ $route.meta.name }}</h1>
+        <h1>{{ collection[0]?.name }}</h1>
 
-        <p>
-          Раздел IT оборудования на нашем сайте представляет широкий ассортимент высококачественных
-          компьютерных комплектующих и периферийных устройств от ведущих мировых производителей. В
-          нашем каталоге вы найдете все необходимое для сборки мощного компьютера, а также множество
-          полезных аксессуаров для удобной и эффективной работы.
-        </p>
+        <p v-html="collection[0]?.description"></p>
       </aside>
 
       <RouterLink
