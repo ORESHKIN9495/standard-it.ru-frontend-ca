@@ -146,8 +146,8 @@ form {
   }
 
   img {
-    width: 100%;
     margin: 40px 0;
+    width: 100%;
   }
 
   a {
@@ -155,18 +155,31 @@ form {
     text-decoration: underline;
   }
 
+  p {
+    img {
+      max-width: 600px;
+    }
+  }
+
   ul {
     list-style: disc;
     padding: 20px;
   }
 
-  table {
-    tr td {
-      border: 1px solid rgb(var(--color-border-dark));
-      padding: 10px 20px;
+  .table-container {
+    overflow: auto;
 
-      img {
-        margin: 0;
+    table {
+      width: 100%;
+
+      tr td {
+        border: 1px solid rgb(var(--color-border-dark));
+        padding: 10px 20px;
+
+        img {
+          margin: 0;
+          max-width: 200px;
+        }
       }
     }
   }

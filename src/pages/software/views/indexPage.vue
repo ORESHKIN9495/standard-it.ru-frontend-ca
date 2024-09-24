@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CrumbsComponent from '@/components/CrumbsComponent.vue'
-import { computed } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { useSoftware } from '../store/index'
 
@@ -8,6 +8,21 @@ const route = useRoute()
 const store = useSoftware()
 
 const listOne = computed(() => store.list.find((el) => el.id === +route.params.id))
+
+const content = ref()
+
+watchEffect(() => {
+  const table = content.value?.querySelector('table')
+
+  if (table) {
+    table.replaceWith(
+      Object.assign(document.createElement('div'), {
+        className: 'table-container',
+        innerHTML: table.outerHTML
+      })
+    )
+  }
+})
 
 store.find()
 </script>
@@ -19,7 +34,12 @@ store.find()
     <section>
       <h1>{{ listOne?.name }}</h1>
 
-      <article class="content" v-html="listOne?.description" />
+      <article
+        v-if="listOne?.description"
+        ref="content"
+        class="content"
+        v-html="listOne?.description"
+      />
     </section>
 
     <ul>
@@ -47,15 +67,10 @@ main {
   display: grid;
   gap: var(--theme-gap);
 
-  section:deep() {
+  section {
     background-color: rgb(var(--color-light));
     padding: clamp(20px, 2vw, 40px);
-
-    p {
-      img {
-        max-width: 600px;
-      }
-    }
+    overflow: auto;
   }
 
   ul {
