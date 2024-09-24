@@ -159,5 +159,16 @@ form {
     list-style: disc;
     padding: 20px;
   }
+
+  table {
+    tr td {
+      border: 1px solid rgb(var(--color-border-dark));
+      padding: 10px 20px;
+
+      img {
+        margin: 0;
+      }
+    }
+  }
 }
 </style>
