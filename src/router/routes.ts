@@ -120,7 +120,7 @@ export const routes = [
     path: '/knowledge',
     name: 'knowledge',
     meta: {
-      name: 'Доска знаний'
+      name: 'Центр знаний'
     },
 
     component: () => import('@/pages/knowledge/views/indexView.vue')
@@ -129,7 +129,7 @@ export const routes = [
     path: '/knowledge/:id',
     name: 'knowledge-page',
     meta: {
-      name: 'Доска знаний'
+      name: 'Центр знаний'
     },
 
     component: () => import('@/pages/knowledge/views/indexPage.vue')
