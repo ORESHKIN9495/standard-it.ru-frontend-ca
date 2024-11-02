@@ -5,7 +5,7 @@ import KnowledgeComponent from '../components/KnowledgeComponent.vue'
 
 <template>
   <main>
-    <CrumbsComponent crumb="Доска знаний" />
+    <CrumbsComponent crumb="Центр знаний" />
 
     <KnowledgeComponent />
   </main>
