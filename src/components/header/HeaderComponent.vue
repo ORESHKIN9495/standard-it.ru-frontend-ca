@@ -34,7 +34,7 @@ const store = useNavigate()
     </nav>
 
     <nav>
-      <a href="tel:8 (8442) 61-32-91">8 (8442) 61-32-91</a>
+      <a href="tel:8 (8442) 61-32-91">+7 (8442) 61-32-91</a>
       <a href="mailto:info@standard-it.ru">info@standard-it.ru</a>
     </nav>
   </header>
